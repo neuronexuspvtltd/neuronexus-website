@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketing Projects - Neuronexus</title>
+    <link rel="stylesheet" href="marketing.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="container nav-container">
+            <img src="nn-logo.png" alt="Neuronexus Logo" class="logo" />
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projects" class="active">Projects</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Marketing Projects -->
+    <section class="projects">
+        <div class="container">
+            <h2>Marketing Campaigns</h2>
+            <div class="projects-grid">
+                <!-- Row 1 -->
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/400x300/?marketing,socialmedia" alt="Project 1" />
+                    <h3>Social Media Boost</h3>
+                    <p>A campaign that increased engagement by 200%.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/400x300/?ads,marketing" alt="Project 2" />
+                    <h3>Ad Campaign</h3>
+                    <p>Targeted ads that reached over 1M users worldwide.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/400x300/?branding,campaign" alt="Project 3" />
+                    <h3>Brand Awareness</h3>
+                    <p>Branding strategy for a multinational tech company.</p>
+                </div>
+
+                <!-- Row 2 -->
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/400x300/?seo,marketing" alt="Project 4" />
+                    <h3>SEO Optimization</h3>
+                    <p>Achieved first-page ranking for 50+ keywords.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/400x300/?content,marketing" alt="Project 5" />
+                    <h3>Content Strategy</h3>
+                    <p>Engaging content strategy for digital platforms.</p>
+                </div>
+                <div class="project-card">
+                    <img src="https://source.unsplash.com/400x300/?email,campaign" alt="Project 6" />
+                    <h3>Email Campaign</h3>
+                    <p>Successful email marketing with a 40% open rate.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <h3>Neuronexus</h3>
+                <p>Sanjay Ghodawat University A block 2nd Floor Atigre</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
+                <p><i class="fas fa-envelope"></i> contact@neuronexus.com</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<style>
+    /* Body */
+body {
+    background: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar */
+header {
+    background: #0a0a0a;
+    padding: 15px 20px;
+    border-bottom: 1px solid #222;
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+.logo {
+    width: 100px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+nav a {
+    color: #00bfa6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+nav a.active,
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Projects Section */
+.projects {
+    padding: 50px 20px;
+    background: #121212;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #00bfa6;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.project-card {
+    background: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card h3 {
+    font-size: 1.4rem;
+    margin: 15px;
+    color: #00bfa6;
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin: 0 15px 15px;
+    color: #ccc;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 255, 200, 0.3);
+}
+
+/* Footer */
+.footer {
+    background-color: #0a0a0a;
+    color: #ccc;
+    padding: 40px 20px 20px;
+}
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 30px;
+}
+.footer-left h3 {
+    color: #00bfa6;
+    margin-bottom: 10px;
+}
+.footer-left p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+.footer-left i {
+    margin-right: 8px;
+    color: #00bfa6;
+}
+.footer-social h4 {
+    color: #00bfa6;
+    margin-bottom: 10px;
+}
+.footer-social .social-icons a {
+    color: #00bfa6;
+    margin-right: 12px;
+    font-size: 1.3rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.footer-social .social-icons a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #222;
+    padding-top: 10px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+</style>

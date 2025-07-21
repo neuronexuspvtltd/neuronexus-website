@@ -108,6 +108,13 @@ nav a:hover {
     margin-bottom: 15px;
     color: #00bfa6;
 }
+.project-card {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Keep text color same as parent */
+    display: block; /* Make entire card clickable */
+}
+
+
 
 /* Projects Section */
 .projects {
