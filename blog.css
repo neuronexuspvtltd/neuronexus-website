@@ -14,6 +14,10 @@ header {
     background: #0a0a0a;
     padding: 15px 20px;
     border-bottom: 1px solid #222;
+     position: sticky; /* 👈 This makes it stick */
+    top: 0;           /* 👈 Stick to top of viewport */
+    z-index: 1000;    /* 👈 Keeps it above other content */
+    
 }
 
 .nav-container {
