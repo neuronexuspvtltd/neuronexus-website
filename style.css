@@ -13,7 +13,7 @@ body {
 
 /* Navbar */
 header {
-    background: #0a0a0a;
+    background: #000000;
     padding: 15px 0;
     border-bottom: 1px solid #222;
     position: sticky; /* 👈 This makes it stick */
@@ -267,7 +267,7 @@ footer {
     margin: 0 auto 15px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #00bfa6;
+    border: 3px solid #192b28ff;
 }
 .member-photo img {
     width: 100%;
