@@ -20,6 +20,11 @@ header {
     top: 0;           /* 👈 Stick to top of viewport */
     z-index: 1000;    /* 👈 Keeps it above other content */
 }
+html {
+  scroll-padding-top: 80px; /* Adjust this value to match your navbar height */
+  scroll-behavior: smooth;
+}
+
 .nav-container {
     display: flex;
     justify-content: space-between;
