@@ -1,4 +1,4 @@
-/* blog.css */
+
 
 /* Inherit the same theme */
 body {
@@ -12,12 +12,11 @@ body {
 /* Navbar (same as main site) */
 header {
     background: #0a0a0a;
-    padding: 15px 20px;
+    padding: 15px 0;
     border-bottom: 1px solid #222;
-     position: sticky; /* 👈 This makes it stick */
+    position: sticky; /* 👈 This makes it stick */
     top: 0;           /* 👈 Stick to top of viewport */
     z-index: 1000;    /* 👈 Keeps it above other content */
-    
 }
 
 .nav-container {
@@ -28,24 +27,20 @@ header {
     margin: auto;
     padding: 0 20px;
 }
-
 .logo {
-    width: 100px;
+    width: 180px;
 }
-
 nav ul {
     list-style: none;
     display: flex;
     gap: 25px;
 }
-
 nav a {
     color: #00bfa6;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
-
 nav a.active,
 nav a:hover {
     color: #ffffff;
