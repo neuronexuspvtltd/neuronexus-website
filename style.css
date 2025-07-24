@@ -273,14 +273,24 @@ body {
 .contact button:hover {
     background: #00997a;
 }
-
-/* Footer */
-footer {
-    background: #0a0a0a;
-    text-align: center;
-    padding: 15px 0;
-    color: #777;
+.swal2-smaller {
+  font-size: 0.9rem;
+  padding: 10px 15px;
+  min-width: 200px !important;
+  max-width: 250px !important;
+  border-radius: 10px;
 }
+.custom-toast {
+  font-size: 0.85rem;
+  padding: 12px 20px !important;
+  border-radius: 12px !important;
+  box-shadow: 0 0 10px rgba(0, 191, 166, 0.3);
+}
+
+
+
+
+
  
 
 
@@ -333,6 +343,7 @@ footer {
   object-fit: cover;
 }
 
+
 .team-card h3 {
   color: #00bfa6;
   margin: 10px 0 5px;
@@ -351,11 +362,85 @@ footer {
     transform: translateX(-50%);
   }
 }
+.team-card {
+  background: #1f1f1f;
+  border-radius: 15px;
+  width: 280px;
+  margin: 20px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 191, 166, 0.1);
+}
+
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 191, 166, 0.4);
+}
+
+.member-photo img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 0px solid #00bfa6;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+.team-card:hover .member-photo img {
+  transform: scale(1.05);
+}
+
+/* Member name & role */
+.team-card h3 {
+  color: #fff;
+  margin: 10px 0 5px;
+  font-size: 1.2rem;
+}
+
+.team-card p {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+/* Social icons always visible and styled */
+.social-icons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a {
+  color: #00bfa6;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
 
 
 
 
 /* Footer */
+footer {
+    background: #0a0a0a;
+    text-align: center;
+    padding: 15px 0;
+    color: #777;
+}
 .footer {
     background-color: #0a0a0a;
     color: #ccc;
@@ -403,9 +488,4 @@ footer {
     color: #777;
     font-size: 0.9rem;
 }
-
-
-
-
-
 
