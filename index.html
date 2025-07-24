@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+     
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
@@ -22,24 +24,38 @@
 </head> 
 <body>
     <!-- Navbar -->
-    <header>
-        <div class="container nav-container">
-        <a href="index.html" class="logo-link">
-  <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
-</a>
+ <header>
+  <div class="container nav-container">
+    <a href="index.html" class="logo-link">
+      <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+    </a>
 
-            <nav>
-                <ul>
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const menuBtn = document.getElementById("menuToggle");
+  const navList = document.querySelector("nav ul");
+
+  menuBtn.addEventListener("click", () => {
+    navList.classList.toggle("show");
+  });
+</script>
+
+
+
 
     <!-- Hero Section -->
 <section id="home" class="hero">
@@ -153,7 +169,7 @@
   <p>Founder & CEO</p>
   <div class="social-icons">
     <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
     <a href="mailto:suyash@example.com"><i class="fas fa-envelope"></i></a>
   </div>
@@ -187,7 +203,7 @@
       </div>
       <div class="team-card">
         <div class="member-photo">
-          <img src=" " alt="Akhaya Shitole" />
+          <img src="akshiyaimg.jpg" alt="Akhaya Shitole" />
         </div>
         <h3>Akhaya Shitole</h3>
         <p>.NET Developer & UI/UX Expert</p>
@@ -233,7 +249,7 @@
   <p>Founder & CEO</p>
   <div class="social-icons">
     <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
     <a href="mailto:suyash@example.com"><i class="fas fa-envelope"></i></a>
   </div>
@@ -267,7 +283,7 @@
       </div>
       <div class="team-card">
         <div class="member-photo">
-          <img src=" " alt="Akhaya Shitole" />
+          <img src="akshiyaimg.jpg" alt="Akhaya Shitole" />
         </div>
         <h3>Akhaya Shitole</h3>
         <p>.NET Developer & UI/UX Expert</p>
@@ -311,48 +327,80 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-           <form id="contactForm">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea placeholder="Your Message" rows="5" required></textarea>
-    <button type="submit" class="btn">Send Message</button>
-</form>    
-        </div>
-    </section>
+  <div class="container">
+    <h2>Contact Us</h2>
+    
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <!-- Web3Forms access key -->
+      <input type="hidden" name="access_key" value="67151c0f-2d59-4946-9151-cb5436c37798" />
+
+      <!-- Input fields with name attributes -->
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </div>
+</section>
+
 
 
 
     <!-- js for contact  -->
 <script>
   document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // prevent reload
-    this.reset(); // reset form
+    e.preventDefault(); // Prevent normal form submission
 
-   Swal.fire({
-  toast: true,
-  position: 'top',
-  icon: 'success',
-  title: 'Thanks for reaching out to us. We’ll get back to you shortly.',
-  showConfirmButton: false,
-  timer: 3000,
-  background: '#1a1a1a',
-  color: '#ffffff',
-  iconColor: '#00bfa6',
-  customClass: {
-    popup: 'custom-toast'
-  },
-  showClass: {
-    popup: 'animate__animated animate__fadeInDown'
-  },
-  hideClass: {
-    popup: 'animate__animated animate__fadeOutUp'
-  }
-});
+    const form = this;
+    const formData = new FormData(form);
 
+    // Submit the form via fetch to Web3Forms
+    fetch(form.action, {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        // Show your SweetAlert popup
+        Swal.fire({
+          toast: true,
+          position: 'top',
+          icon: 'success',
+          title: 'Thanks for reaching out to us. We’ll get back to you shortly.',
+          showConfirmButton: false,
+          timer: 3000,
+          background: '#1a1a1a',
+          color: '#ffffff',
+          iconColor: '#00bfa6',
+          customClass: {
+            popup: 'custom-toast'
+          },
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
+        });
+
+        form.reset(); // Clear the form
+      } else {
+        throw new Error("Submission failed.");
+      }
+    })
+    .catch(error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops!',
+        text: 'Something went wrong. Please try again later.',
+        background: '#1a1a1a',
+        color: '#ffffff'
+      });
+    });
   });
 </script>
+
 
 
 
