@@ -53,26 +53,76 @@ nav a:hover {
 }
 
 /* Hero Section */
+.hero h1, .hero h2, .hero p, .btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+}
+
+.hero h2 { animation-delay: 0.3s; }
+.hero p { animation-delay: 0.6s; }
+.btn { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a0a0a;
+    color: #fff;
+}
+
+
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+     /* backdrop-filter: blur(10px); */
     background: radial-gradient(circle at top, #00bfa6, #0a0a0a);
     height: 90vh;
-    color: #fff;
+    padding: 0 20px;
 }
+
 .hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    font-size: clamp(2rem, 5vw, 4rem);
 }
-.hero h1 span {
-    color: #00bfa6;
+
+.hero h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    height: 50px;
+    color: #fff;
+    font-weight: 600;
 }
+
+.highlight {
+    font-family: 'Poppins', monospace;
+    font-weight: bold;
+    color: #00ffcc;
+    /* border-right: 2px solid #00ffcc; */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .hero p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.1rem;
+    margin: 0 auto 30px;
+    max-width: 600px;
+    font-weight: 400;
+    line-height: 1.6;
 }
+
 .btn {
     background: #00bfa6;
     color: #0a0a0a;
@@ -80,11 +130,17 @@ nav a:hover {
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    transition: background 0.3s;
+    font-size: 1rem;
+    transition: background 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+
 }
+
 .btn:hover {
     background: #00997a;
 }
+
+
 
 /* Services Section */
 .services {
@@ -228,167 +284,74 @@ footer {
  
 
 
-
-/* Team Section */
-/* Team Section */
-/* .team {
-    padding: 60px 20px;
-    background: #0a0a0a;
-    text-align: center;
-}
-.team h2 {
-    font-size: 2.5rem;
-    color: #00bfa6;
-    margin-bottom: 40px;
-}
-.team-members {
-    display: flex;
-    justify-content: center;
-    gap: 15px; 
-    flex-wrap: wrap; 
-}
-
-.member {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 20px;
-    width: 220px;
-    box-shadow: 0 0 12px rgba(0, 191, 166, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.member:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 16px rgba(0, 191, 166, 0.3);
-}
-
-.member-photo {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #192b28ff;
-}
-.member-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.member h3 {
-    color: #00bfa6;
-    margin-bottom: 5px;
-}
-.member p {
-    font-size: 0.9rem;
-    color: #aaa;
-}
-.social-icons {
-    margin-top: 10px;
-}
-.social-icons a {
-    color: #00bfa6;
-    margin: 0 8px;
-    font-size: 1.2rem;
-    transition: color 0.3s, transform 0.3s;
-}
-.social-icons a:hover {
-    color: #ffffff;
-    transform: scale(1.2);
-} */
-
-
-/* Social Icons under founder*/
-/* .social-icons {
-    margin-top: 10px;
-}
-.social-icons a {
-    color: #139281;
-    margin: 0 8px;
-    font-size: 1.2rem;
-    transition: color 0.3s, transform 0.3s;
-}
-.social-icons a:hover {
-    color: #ffffff;
-    transform: scale(1.2);
-} */
-
-
 /* Meet Our Team Section */
-.team {
-    padding: 60px 20px;
-    background: #111;
-    text-align: center;
+.team-slider {
+  background: #111;
+  padding: 50px 0;
+  text-align: center;
 }
 
-.team h2 {
-    font-size: 2.5rem;
-    color: #00bfa6;
-    margin-bottom: 40px;
+.team-slider h2 {
+  font-size: 2.5rem;
+  color: #00bfa6;
+  margin-bottom: 30px;
 }
 
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Increased min-width */
-    gap: 20px; /* Reduced gap between cards */
-    justify-items: center;
+.slider {
+  overflow: hidden;
+  position: relative;
 }
 
-.team-member {
-    background: #1c1c1c;
-    border-radius: 15px;
-    padding: 25px; /* Slightly larger padding for better spacing inside */
-    width: 100%;
-    max-width: 260px; /* Increased max-width of cards */
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+.slide-track {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: calc(300px * 12); /* 6 cards x 2 for infinite loop */
 }
 
-.team-member:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 0 20px rgba(0, 191, 166, 0.3);
+.team-card {
+  background: #1c1c1c;
+  border-radius: 15px;
+  width: 300px;
+  margin: 0 15px;
+  text-align: center;
+  padding: 20px;
+  flex-shrink: 0;
 }
 
 .member-photo {
-    width: 130px; /* Slightly bigger photo */
-    height: 130px;
-    margin: 0 auto 15px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid #00bfa6;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #00bfa6;
 }
 
 .member-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.team-member h3 {
-    color: #00bfa6;
-    margin-bottom: 5px;
-    font-size: 1.2rem;
+.team-card h3 {
+  color: #00bfa6;
+  margin: 10px 0 5px;
 }
 
-.team-member p {
-    font-size: 0.9rem;
-    color: #ccc;
+.team-card p {
+  color: #ccc;
+  font-size: 0.95rem;
 }
 
-.social-icons {
-    margin-top: 12px;
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.social-icons a {
-    color: #00bfa6;
-    margin: 0 6px; /* Slightly reduced margin between icons */
-    font-size: 1.2rem;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-icons a:hover {
-    color: #ffffff;
-    transform: scale(1.2);
-}
 
 
 
@@ -440,7 +403,6 @@ footer {
     color: #777;
     font-size: 0.9rem;
 }
-
 
 
 

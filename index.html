@@ -6,12 +6,22 @@
     <title>Neuronexus - Next-Gen Intelligence</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
 </head> 
 <body>
     <!-- Navbar -->
     <header>
         <div class="container nav-container">
-            <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+        <a href="index.html" class="logo-link">
+  <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+</a>
+
             <nav>
                 <ul>
                     <li><a href="#home" class="active">Home</a></li>
@@ -26,13 +36,39 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <h1>We Create <span>Next-Gen Solutions</span></h1>
-            <p>Your partner for Web Development, App Development, and Digital Marketing.</p>
-            <a href="#contact" class="btn">Get Started</a>
-        </div>
-    </section>
+<section id="home" class="hero">
+  <div class="container hero-content">
+    <h1 class="tagline">Transforming Ideas Into Reality</h1>
+    <h2 class="subline">We build <span id="typed-text" class="highlight"></span></h2>
+    <p>Delivering software solutions for startups, businesses, and entrepreneurs.</p>
+    <a href="#contact" class="btn">Let’s Work Together</a>
+  </div>
+  
+</section>
+
+
+<!-- js -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  var typed = new Typed("#typed-text", {
+    strings: [
+      "Mobile Apps",
+      "Websites",
+      "AI Solutions",
+      "Startup Tools",
+      "UI/UX Interfaces",
+      "Automation Systems"
+    ],
+    typeSpeed: 80,
+    backSpeed: 40,
+    backDelay: 1500,
+    loop: true
+  });
+</script>
+
+
+
+
 
     <!-- Services Section -->
     <section id="services" class="services">
@@ -88,142 +124,109 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Neuronexus</h2>
+            <h2>About NeuroNexus</h2>
             <p>
                 Neuronexus is a cutting-edge tech company offering solutions in web development, app creation, and digital marketing. We specialize in crafting tailored strategies to empower businesses in the digital world.
             </p>
         </div>
     </section>
 
-    <!-- Team / Founders Section -->
-
-<!-- <section class="team">
-    <div class="container">
-        <h2>Meet the Founders</h2>
-        <div class="team-members"> -->
-            <!-- Founder 1 -->
-            <!-- <div class="member">
-                <div class="member-photo">
-                    <img src="photo id.jpeg" alt="Suyash Narade" />
-                </div>
-                <h3>Suyash Narade</h3>
-                <p>Founder & CEO</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/suyash-narade-31763125b" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/suyash3256" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div> -->
-
-            <!-- Founder 2 -->
-            <!-- <div class="member">
-                <div class="member-photo">
-                    <img src="founder2.jpg" alt="John Doe" />
-                </div>
-                <h3>Soham Kulkarni</h3>
-                <p>Co-Founder & CTO</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/john-doe" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/johndoe" target="_blank"><i class="fab fa-github"></i></a>
-                   <a href="https://instagram.com/jane.smith" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div> -->
-
-            <!-- Founder 3 -->
-            <!-- <div class="member">
-                <div class="member-photo">
-                    <img src="founder3.jpg" alt="Jane Smith" />
-                </div>
-                <h3>Tushar Patil</h3>
-                <p>Head of Marketing</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/jane-smith" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/janesmith" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/jane.smith" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
+   
 
 <!-- Meet Our Team Section -->
-<section class="team">
-    <div class="container">
-        <h2>Meet Our Team</h2>
-        <div class="team-grid">
-            <!-- Team Member 1 -->
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="eam3.jpg" alt="Team Member 1" />
-                </div>
-                <h3>Tushar Nangre Patil</h3>
-                <p>Founder</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/suyash" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/suyash" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/suyash" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="photo id.jpeg" alt="Team Member 2" />
-                </div>
-                <h3>Suyash Narade</h3>
-                <p>Founder & CEO</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/suyash-narade-31763125b" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/suyash3256" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- Team Member 3 -->
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="team3.jpg" alt="Team Member 3" />
-                </div>
-                <h3>Soham Kulkarni</h3>
-                <p>Project Manager</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/riya" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://dribbble.com/riya" target="_blank"><i class="fab fa-dribbble"></i></a>
-                    <a href="https://instagram.com/riya" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- Team Member 4 -->
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="chiranjeetimg.jpg" alt="Team Member 4" />
-                </div>
-                <h3>Chiranjeet Banadar</h3>
-                <p>Lead Full Stack Developer</p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/chiranjeet9494" target="_blank"><i class="fab fa-linkedin"></i></a>
-                      <a href="https://github.com/chiranjeet9494" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/chiranjeet_banadar" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-
-            <!-- Team Member 5 -->
-            <div class="team-member">
-                <div class="member-photo">
-                    <img src="team5.jpg" alt="Team Member 5" />
-                </div>
-                <h3>Akhaya Shitole</h3>
-                <p>.NET Developer & UI/UX Expert </p>
-                <div class="social-icons">
-                    <a href="https://linkedin.com/in/sneha" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/sneha" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://instagram.com/sneha" target="_blank"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+<section class="team-slider">
+  <h2>Meet Our Team</h2>
+  <div class="slider">
+    <div class="slide-track">
+      <!-- Team Member Cards -->
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="photo id.jpeg" alt="Suyash Narade" />
         </div>
+        <h3>Suyash Narade</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="" alt="Soham Kulkarni" />
+        </div>
+        <h3>Soham Kulkarni</h3>
+        <p>Project Manager</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="team3.jpg" alt="Chiranjeet Banadar" />
+        </div>
+        <h3>Chiranjeet Banadar</h3>
+        <p>Lead Full Stack Developer</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="chiranjeetimg.jpg" alt="Akhaya Shitole" />
+        </div>
+        <h3>Akhaya Shitole</h3>
+        <p>.NET Developer & UI/UX Expert</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="team5.jpg" alt="Tushar Nangre Patil" />
+        </div>
+        <h3>Tushar Nangre Patil</h3>
+        <p>Founder</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="team6.jpg" alt="mayur nikam" />
+        </div>
+        <h3>Mayur Nikam</h3>
+        <p>Marketing Head</p>
+      </div>
+      <!-- Duplicate for infinite loop -->
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="photo id.jpeg" alt="Suyash Narade" />
+        </div>
+        <h3>Suyash Narade</h3>
+        <p>Founder & CEO</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="" alt="Soham Kulkarni" />
+        </div>
+        <h3>Soham Kulkarni</h3>
+        <p>Project Manager</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="chiranjeetimg.jpg" alt="Chiranjeet Banadar" />
+        </div>
+        <h3>Chiranjeet Banadar</h3>
+        <p>Lead Full Stack Developer</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src=" " alt="Akhaya Shitole" />
+        </div>
+        <h3>Akhaya Shitole</h3>
+        <p>.NET Developer & UI/UX Expert</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="team5.jpg" alt="Tushar Nangre Patil" />
+        </div>
+        <h3>Tushar Nangre Patil</h3>
+        <p>Founder</p>
+      </div>
+      <div class="team-card">
+        <div class="member-photo">
+          <img src="team6.jpg" alt="Riya Patil" />
+        </div>
+        <h3>Mayur Nikam</h3>
+        <p>Marketing Head</p>
+      </div>
     </div>
+  </div>
 </section>
-
 
 
     <!-- Contact Section -->
@@ -245,7 +248,7 @@
     <div class="container footer-content">
         <div class="footer-left">
             <h3>Neuronexus</h3>
-            <p>Sanjay Ghodawat University A block 2nd Floor Atigree</p>
+            <p>Sanjay Ghodawat University A block 2nd Floor Atigre</p>
             <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
             <p><i class="fas fa-envelope"></i> contact@neuronexus.com</p>
         </div>
