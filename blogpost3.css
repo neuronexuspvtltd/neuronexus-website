@@ -1,0 +1,95 @@
+
+    /* Body */
+body {
+    background: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Navbar */
+header {
+    background: #0a0a0a;
+    padding: 15px 20px;
+    border-bottom: 1px solid #222;
+     position: sticky; /* 👈 This makes it stick */
+    top: 0;           /* 👈 Stick to top of viewport */
+    z-index: 1000;    /* 👈 Keeps it above other content */
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+.logo {
+    width: 100px;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+nav a {
+    color: #00bfa6;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+nav a.active,
+nav a:hover {
+    color: #ffffff;
+}
+
+
+/* Footer */
+.footer {
+    background-color: #0a0a0a;
+    color: #ccc;
+    padding: 40px 20px 20px;
+}
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 30px;
+}
+.footer-left h3 {
+    color: #00bfa6;
+    margin-bottom: 10px;
+}
+.footer-left p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+}
+.footer-left i {
+    margin-right: 8px;
+    color: #00bfa6;
+}
+.footer-social h4 {
+    color: #00bfa6;
+    margin-bottom: 10px;
+}
+.footer-social .social-icons a {
+    color: #00bfa6;
+    margin-right: 12px;
+    font-size: 1.3rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.footer-social .social-icons a:hover {
+    color: #ffffff;
+    transform: scale(1.2);
+}
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #222;
+    padding-top: 10px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
