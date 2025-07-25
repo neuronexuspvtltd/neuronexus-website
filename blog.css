@@ -157,3 +157,33 @@ nav a:hover {
     color: #777;
     font-size: 0.9rem;
 }
+
+/* backbutton */
+
+
+.floating-back-button {
+    position: fixed; /* Always visible */
+    bottom: 230px;    /* Distance from bottom */
+    left: 20px;      /* Distance from left */
+    background: rgba(0, 191, 166, 0.1);
+    color: #00ffd1;
+    padding: 12px 20px;
+    border: 2px solid rgba(0, 255, 213, 0.4);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 12px rgba(0, 255, 213, 0.4);
+    z-index: 10000;
+    transition: all 0.3s ease;
+}
+
+.floating-back-button:hover {
+    background: rgba(0, 255, 213, 0.25);
+    color: white;
+    box-shadow: 0 0 20px rgba(0, 255, 213, 0.6), 0 0 30px rgba(0, 255, 213, 0.4);
+    transform: scale(1.05);
+}
+
