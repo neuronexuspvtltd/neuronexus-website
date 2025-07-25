@@ -163,7 +163,7 @@ nav a:hover {
 
 .floating-back-button {
     position: fixed; /* Always visible */
-    bottom: 230px;    /* Distance from bottom */
+    bottom: 20px;    /* Distance from bottom */
     left: 20px;      /* Distance from left */
     background: rgba(0, 191, 166, 0.1);
     color: #00ffd1;
