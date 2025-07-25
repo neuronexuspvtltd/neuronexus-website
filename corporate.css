@@ -288,3 +288,9 @@ nav a:hover {
     margin: 8px;
   }
 }
+/* Hide toggle icon on screens wider than 768px */
+@media screen and (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
