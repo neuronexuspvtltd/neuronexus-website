@@ -24,7 +24,7 @@
 </head> 
 <body>
     <!-- Navbar -->
- <header>
+<header>
   <div class="container nav-container">
     <a href="index.html" class="logo-link">
       <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
@@ -32,7 +32,7 @@
 
     <button class="menu-toggle" id="menuToggle">&#9776;</button>
 
-    <nav>
+    <nav id="mainNav">
       <ul>
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#services">Services</a></li>
@@ -45,14 +45,17 @@
   </div>
 </header>
 
-<script>
-  const menuBtn = document.getElementById("menuToggle");
-  const navList = document.querySelector("nav ul");
 
-  menuBtn.addEventListener("click", () => {
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const nav = document.getElementById("mainNav");
+  const navList = nav.querySelector("ul");
+
+  menuToggle.addEventListener("click", () => {
     navList.classList.toggle("show");
   });
 </script>
+
 
 
 

@@ -3,27 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog Post 1</title>
-  <link rel="stylesheet" href="blogpost3.css" />
+  <title>Neuronexus | Blog Post 1</title>
+  <link rel="stylesheet" href="blogpost1.css" />
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  
 </head>
 <body>
 <!-- Navbar -->
-    <header>
-        <div class="container nav-container">
-            <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#projects">Projects</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    
-                </ul>
-            </nav>
-        </div>
-    </header>
+      <header>
+    <div class="container nav-container" style="position: relative;">
+      <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+      <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+      <nav>
+        <ul id="navLinks">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header><script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  </script>
 
 <!-- Blog Post Content -->
   <div class="blog-post-container">
