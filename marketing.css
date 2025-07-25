@@ -44,6 +44,8 @@ nav a:hover {
     color: #ffffff;
 }
 
+
+
 /* Projects Section */
 .projects {
     padding: 50px 20px;
@@ -62,6 +64,7 @@ nav a:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
 
 .project-card {
     background: #1e1e1e;
@@ -172,4 +175,36 @@ nav a:hover {
     box-shadow: 0 0 20px rgba(0, 255, 213, 0.6), 0 0 30px rgba(0, 255, 213, 0.4);
     transform: scale(1.05);
 }
+
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-social {
+    flex: 1 1 100%;
+  }
+
+  .footer-left p,
+  .footer-left h3,
+  .footer-social h4 {
+    text-align: center;
+  }
+
+  .footer-social .social-icons {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer-social .social-icons a {
+    margin: 8px;
+  }
+}
+
 
