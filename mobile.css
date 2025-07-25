@@ -26,7 +26,7 @@ header {
     padding: 0 20px;
 }
 .logo {
-    width: 100px;
+    width: 180px;
 }
 nav ul {
     list-style: none;
@@ -43,6 +43,67 @@ nav a.active,
 nav a:hover {
     color: #ffffff;
 }
+@media (max-width: 768px) {
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 35px;
+    color: #00bfa6;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1001;
+  }
+
+  nav {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 200px;
+    overflow: hidden;
+    z-index: 1000;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 0;
+    background: transparent;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav a {
+    display: block;
+    padding: 12px 20px;
+    color: #00bfa6;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  nav a:hover {
+    background: #111;
+  }
+}
+
+
+
 
 /* Projects Section */
 .projects {
@@ -62,6 +123,14 @@ nav a:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+
+/* for card mobilview */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 .project-card {
     background: #1e1e1e;
@@ -172,4 +241,36 @@ nav a:hover {
     box-shadow: 0 0 20px rgba(0, 255, 213, 0.6), 0 0 30px rgba(0, 255, 213, 0.4);
     transform: scale(1.05);
 }
+
+
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-social {
+    flex: 1 1 100%;
+  }
+
+  .footer-left p,
+  .footer-left h3,
+  .footer-social h4 {
+    text-align: center;
+  }
+
+  .footer-social .social-icons {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .footer-social .social-icons a {
+    margin: 8px;
+  }
+}
+
 
