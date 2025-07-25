@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,39 +8,26 @@
     <link rel="stylesheet" href="corporate.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
     <!-- Navbar -->
     <!-- Navbar -->
-<header>
-  <div class="container nav-container">
-    <a href="index.html" class="logo-link">
-      <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
-    </a>
+    <header>
+        <div class="container nav-container">
+            <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projects" class="active">Projects</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
 
-    <button class="menu-toggle" id="menuToggle">&#9776;</button>
-
-    <nav>
-      <ul>
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#projects">Projects</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<script>
-  const menuBtn = document.getElementById("menuToggle");
-  const navList = document.querySelector("nav ul");
-
-  menuBtn.addEventListener("click", () => {
-    navList.classList.toggle("show");
-  });
-</script>
-</script>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <!-- Corporate Projects -->
     <section class="projects">
@@ -47,21 +35,46 @@
             <h2>Corporate Websites</h2>
             <div class="projects-grid">
                 <!-- Row 1 -->
+                <!-- <div class="project-card">
+                    <img src="pcss.png" alt="Project 1" />
+                    <h3>PDF Customizer</h3>
+                    <p>Easily customize PDFs with page numbers, borders and footers.</p>
+                </div> -->
+
                 <div class="project-card">
-                    <img src="https://source.unsplash.com/400x300/?corporate,website" alt="Project 1" />
-                    <h3>Corporate Portal</h3>
-                    <p>A dynamic portal for enterprise management and communication.</p>
+                    <img src="pdfcustomizer.png" alt="PDF Customizer Preview" />
+                    <h3>PDF Customizer</h3>
+                    <p>Easily customize PDFs with page numbers, borders and footers.</p>
+                    <a href="https://pdfcustomizer.netlify.app/" target="_blank" class="project-btn">🚀 Use Tool</a>
                 </div>
-                <div class="project-card">
+
+
+                <!-- <div class="project-card">
                     <img src="https://source.unsplash.com/400x300/?business,website" alt="Project 2" />
                     <h3>Business Dashboard</h3>
                     <p>A responsive dashboard for monitoring KPIs and analytics.</p>
-                </div>
+                </div> -->
+
                 <div class="project-card">
+                    <img src="karobari.jpg" alt="PDF Customizer Preview" />
+                    <h3>Karobari</h3>
+                    <p>Karobari is a financial management tool to track sales, purchases, payments for local vendors.</p>
+                    <a href="https://karobari.netlify.app/" target="_blank" class="project-btn">🚀 Use Tool</a>
+                </div>
+
+                <!-- <div class="project-card">
                     <img src="https://source.unsplash.com/400x300/?company,website" alt="Project 3" />
                     <h3>Company Profile</h3>
                     <p>A sleek company profile website for client engagement.</p>
+                </div> -->
+
+                   <div class="project-card">
+                    <img src="sginternational.jpg" alt="PDF Customizer Preview" />
+                    <h3>SG International</h3>
+                    <p>Kolhapur based Import-Export Company. Mainly trades in Jaggery, Kolhapuri Chappals etc.</p>
+                    <a href="https://thesginternational.com/" target="_blank" class="project-btn">🌐Visit Website</a>
                 </div>
+
 
                 <!-- Row 2 -->
                 <div class="project-card">
@@ -82,32 +95,33 @@
             </div>
         </div>
     </section>
-          <a href="index.html" class="floating-back-button">
-    Back 
-</a>
+    <a href="index.html" class="floating-back-button">
+        Back
+    </a>
 
-   <footer class="footer">
-    <div class="container footer-content">
-        <div class="footer-left">
-            <h3>Neuronexus</h3>
-            <p>Sanjay Ghodawat University A block 2nd Floor Atigree</p>
-            <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
-            <p><i class="fas fa-envelope"></i> contact@neuronexus.com</p>
-        </div>
-        <div class="footer-social">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/neuronexus.ltd" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <h3>Neuronexus</h3>
+                <p>Sanjay Ghodawat University A block 2nd Floor Atigree</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
+                <p><i class="fas fa-envelope"></i> contact@neuronexus.com</p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/neuronexus.ltd" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
-    </div>
-</footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
