@@ -11,7 +11,7 @@ body {
 
 /* Navbar (same as main site) */
 header {
-    background: #0a0a0a;
+    background: #000000;
     padding: 15px 0;
     border-bottom: 1px solid #222;
     position: sticky; /* 👈 This makes it stick */
