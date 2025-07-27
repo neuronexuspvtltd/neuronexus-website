@@ -208,3 +208,181 @@ nav a:hover {
 }
 
 
+/* Responsive Grid */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Navbar - Mobile Menu */
+@media (max-width: 768px) {
+  .logo {
+    width: 180px;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 35px;
+    color: #00bfa6;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+    position: relative;
+    z-index: 1001;
+  }
+
+  nav {
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    width: 200px;
+    overflow: hidden;
+    z-index: 1000;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+    gap: 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav a {
+    display: block;
+    padding: 12px 20px;
+    color: #00bfa6;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  nav a:hover {
+    background: #111;
+  }
+}
+
+/* Hide toggle icon on larger screens */
+@media screen and (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
+
+
+
+/* ✅ Grid Responsiveness */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card {
+    width: 100%;
+  }
+
+  .projects h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ✅ Mobile Navbar */
+@media (max-width: 768px) {
+  .logo {
+    width: 180px;
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 35px;
+    color: #00bfa6;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  nav {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul.show {
+    display: flex;
+  }
+
+  nav ul li {
+    width: 100%;
+  }
+
+  nav a {
+    display: block;
+    padding: 15px 20px;
+    color: #00bfa6;
+    text-decoration: none;
+    font-size: 1rem;
+    border-bottom: 1px solid #111;
+  }
+
+  nav a:hover {
+    background: #111;
+  }
+}
+
+/* ✅ Hide Menu Toggle on Desktop */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+}

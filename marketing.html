@@ -9,21 +9,36 @@
 </head>
 <body>
     <!-- Navbar -->
-    <header>
-        <div class="container nav-container">
-            <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#services">Services</a></li>
-                    <li><a href="index.html#projects" class="active">Projects</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header>
+  <div class="container nav-container">
+    <a href="index.html" class="logo-link">
+      <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+    </a>
+
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#projects" class="active">Projects</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<script>
+  const menuBtn = document.getElementById("menuToggle");
+  const navList = document.querySelector("nav ul");
+
+  menuBtn.addEventListener("click", () => {
+    navList.classList.toggle("show");
+  });
+</script>
+
+
 
     <!-- Marketing Projects -->
     <section class="projects">
@@ -95,146 +110,5 @@
     </footer>
 </body>
 </html>
-<style>
-    /* Body */
-body {
-    background: #121212;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-/* Navbar */
-header {
-    background: #0a0a0a;
-    padding: 15px 20px;
-    border-bottom: 1px solid #222;
-}
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-.logo {
-    width: 100px;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-nav a {
-    color: #00bfa6;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-nav a.active,
-nav a:hover {
-    color: #ffffff;
-}
-
-/* Projects Section */
-.projects {
-    padding: 50px 20px;
-    background: #121212;
-}
-
-.projects h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #00bfa6;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-}
-
-.project-card {
-    background: #1e1e1e;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.project-card h3 {
-    font-size: 1.4rem;
-    margin: 15px;
-    color: #00bfa6;
-}
-
-.project-card p {
-    font-size: 1rem;
-    margin: 0 15px 15px;
-    color: #ccc;
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 255, 200, 0.3);
-}
-
-/* Footer */
-.footer {
-    background-color: #0a0a0a;
-    color: #ccc;
-    padding: 40px 20px 20px;
-}
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: auto;
-    gap: 30px;
-}
-.footer-left h3 {
-    color: #00bfa6;
-    margin-bottom: 10px;
-}
-.footer-left p {
-    margin: 8px 0;
-    font-size: 0.95rem;
-}
-.footer-left i {
-    margin-right: 8px;
-    color: #00bfa6;
-}
-.footer-social h4 {
-    color: #00bfa6;
-    margin-bottom: 10px;
-}
-.footer-social .social-icons a {
-    color: #00bfa6;
-    margin-right: 12px;
-    font-size: 1.3rem;
-    transition: color 0.3s, transform 0.3s;
-}
-.footer-social .social-icons a:hover {
-    color: #ffffff;
-    transform: scale(1.2);
-}
-.footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-    border-top: 1px solid #222;
-    padding-top: 10px;
-    color: #777;
-    font-size: 0.9rem;
-}
-
-</style>
+ 
