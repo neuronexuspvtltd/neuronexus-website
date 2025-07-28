@@ -343,7 +343,7 @@ body {
 
 
 
-/* Projects Section */
+/* Projects Section view  */
 .projects {
     padding: 60px 20px;
     background: #0a0a0a;
@@ -421,6 +421,11 @@ body {
         transform: translateY(0);
     }
 }
+.project-card:hover .view-more {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 
 
