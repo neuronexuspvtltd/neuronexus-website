@@ -381,30 +381,47 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 191, 166, 0.2);
 }
-/* Show "View →" on hover for desktop */
+.project-card {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 30px; /* reserve space for view-more */
+}
+
+/* Content container */
+.card-content {
+    padding: 10px 15px 0 15px;
+}
+
+/* View → link style */
 .view-more {
-    display: block;
-    text-align: right;
-    padding: 0 15px 15px;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
     font-size: 0.9rem;
     color: #00bfa6;
+    font-weight: 500;
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(5px);
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* On hover for desktop */
 .project-card:hover .view-more {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* Force "View →" to always show on small screens (mobile) */
+/* Always visible on mobile */
 @media (max-width: 768px) {
     .view-more {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 
 
 
