@@ -502,6 +502,96 @@ body {
   border-radius: 12px !important;
   box-shadow: 0 0 10px rgba(0, 191, 166, 0.3);
 }
+/* Section Styling with Grid Background */
+.about-grid-section {
+    position: relative;
+    background: #0a0a0a;
+    color: white;
+    padding: 80px 20px;
+    overflow: hidden;
+}
+
+/* Neon Grid Background */
+.about-grid-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: 
+        linear-gradient(to right, rgba(0,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: rotate(-2deg) scale(1.2);
+    animation: gridMove 15s linear infinite;
+}
+
+/* Subtle grid movement */
+@keyframes gridMove {
+    from { transform: rotate(-2deg) translate(0,0) scale(1.2);}
+    to { transform: rotate(-2deg) translate(-50px,-50px) scale(1.2);}
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+    gap: 50px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Image with Neon Accent */
+.about-image img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,255,255,0.3);
+    border: 2px solid rgba(0,255,255,0.2);
+}
+
+/* Text Styling */
+.about-text {
+    max-width: 600px;
+    border-left: 4px solid  #00bfa6;
+    padding-left: 25px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color:  #00bfa6;
+}
+
+.about-text h2 span {
+    color:  #00bfa6;
+}
+
+.about-text p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media(max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text {
+        border-left: none;
+        padding-left: 0;
+        border-top: 4px solid #00bfa6;
+        padding-top: 20px;
+    }
+    .about-image img {
+        max-width: 300px;
+    }
+}
+
 
 
 
