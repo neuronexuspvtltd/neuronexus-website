@@ -1,98 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neuronexus Blog</title>
-    <link rel="stylesheet" href="blog.css" /> <!-- Blog CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neuronexus Blog</title>
+  <link rel="stylesheet" href="blog.css" /> <!-- Blog CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
 </head>
+
 <body>
-    <!-- Navbar -->
-<header>
-  <div class="container nav-container">
-    <a href="index.html" class="logo-link">
-      <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
-    </a>
+  <!-- Navbar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+      </a>
 
-    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
 
-    <nav>
-      <ul>
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#projects">Projects</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+      <nav>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-<script>
-  const menuBtn = document.getElementById("menuToggle");
-  const navList = document.querySelector("nav ul");
+  <script>
+    const menuBtn = document.getElementById("menuToggle");
+    const navList = document.querySelector("nav ul");
 
-  menuBtn.addEventListener("click", () => {
-    navList.classList.toggle("show");
-  });
-</script>
+    menuBtn.addEventListener("click", () => {
+      navList.classList.toggle("show");
+    });
+  </script>
 
 
 
-    <!-- Blog Content -->
-    <main class="blog">
-        <h1>Our Blog</h1>
-        <p class="intro">Stay updated with our latest posts and articles.</p>
+  <!-- Blog Content -->
+  <main class="blog">
+    <h1>Our Blog</h1>
+    <p class="intro">Stay updated with our latest posts and articles.</p>
 
-        <div class="blog-grid">
-            <article class="blog-card">
-                <h2>Why  choose Neuronexus? for Your Go-To Digital Innovation Partner</h2>
-                <p>Partner with a team that blends innovation, precision, and passion to deliver digital solutions that truly make an impact.</p>
-                <a href="blogpost1.html">Read More</a>
-            </article>
-            <article class="blog-card">
-                <h2>Web Development: The Backbone of Every Digital Brand</h2>
-                <p>Explore how our development expertise turns ideas into fast, secure, and scalable digital experiences that drive real results..</p>
-                <a href="blogpost2.html">Read More</a>
-            </article>
-            <article class="blog-card">
-                <h2>App Development: Capturing India’s Mobile-First Audience</h2>
-                <p>app into the power of mobile with custom app solutions designed scale, and connect with the nation’s fastest-growing digital users</p> 
-                <a href="blogpost3.html">Read More</a>
-            </article>
+    <div class="blog-grid">
+      <article class="blog-card">
+        <img src="thumbnail1.png" alt="Why Every Local Business Needs a Website">
+        <div class="card-content">
+          <h2>Why Every Local Business Needs a Website</h2>
+          <p>A website is not a luxury anymore — it’s your 24/7 salesperson. See how even small businesses can benefit
+            from a simple, affordable online presence.</p>
+          <a href="blogpost1.html">Read More</a>
         </div>
-    </main>
-      <a href="index.html" class="floating-back-button">
-    Back 
-</a>
+      </article>
+      <article class="blog-card">
+        <h2>Web Development: The Backbone of Every Digital Brand</h2>
+        <p>Explore how our development expertise turns ideas into fast, secure, and scalable digital experiences that
+          drive real results..</p>
+        <a href="blogpost2.html">Read More</a>
+      </article>
+      <article class="blog-card">
+        <h2>App Development: Capturing India’s Mobile-First Audience</h2>
+        <p>app into the power of mobile with custom app solutions designed scale, and connect with the nation’s
+          fastest-growing digital users</p>
+        <a href="blogpost3.html">Read More</a>
+      </article>
+    </div>
+  </main>
+  <a href="index.html" class="floating-back-button">
+    Back
+  </a>
 
-    <!-- Footer -->
-    <footer class="footer">
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container footer-content">
-        <div class="footer-left">
-            <h3>Neuronexus</h3>
-            <p>Sanjay Ghodawat University A block 2nd Floor Atigree</p>
-            <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
-            <p><i class="fas fa-envelope"></i> neuronexusltd@gmail.com</p>
+      <div class="footer-left">
+        <h3>Neuronexus</h3>
+        <p>Sanjay Ghodawat University A block 2nd Floor Atigree</p>
+        <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
+        <p><i class="fas fa-envelope"></i> neuronexusltd@gmail.com</p>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/neuronexuspvtltd" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://instagram.com/neuronexus.in" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:neuronexusltd@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <div class="footer-social">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/neuronexuspvtltd" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/neuronexus.in" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:neuronexusltd@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
+      <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
     </div>
-</footer>
+  </footer>
 
 
 </body>
+
 </html>

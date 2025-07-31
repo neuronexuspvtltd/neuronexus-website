@@ -381,3 +381,10 @@ nav ul {
     display: none;
   }
 }
+
+.blog-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 200px;
+}
