@@ -1,467 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neuronexus - Next-Gen Intelligence</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="styles.css?v=1.0.2">
-    <link rel="stylesheet" href="styles.css?v=20250728">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-     
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <title>Neuronexus – Digital Solutions for Local Businesses in India</title>
+  <meta name="description"
+    content="Neuronexus builds websites, tools, and digital solutions tailored for local businesses. Get a fast, affordable online presence without any hassle.">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css?v=1.0.2">
+  <link rel="stylesheet" href="styles.css?v=20250728">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-</head> 
+</head>
+
 <body>
-    <!-- Navbar -->
-<header>
-  <div class="container nav-container">
-    <a href="index.html" class="logo-link">
-      <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
-    </a>
+  <!-- Navbar -->
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo-link">
+        <img src="nn.logo.jpg" alt="Neuronexus Logo" class="logo" />
+      </a>
 
-    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+      <button class="menu-toggle" id="menuToggle">&#9776;</button>
 
-    <nav id="mainNav">
-      <ul>
-        <li><a href="#home" class="active">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-
-<script>
-  const menuToggle = document.getElementById("menuToggle");
-  const nav = document.getElementById("mainNav");
-  const navList = nav.querySelector("ul");
-
-  menuToggle.addEventListener("click", () => {
-    navList.classList.toggle("show");
-  });
-</script>
-
-
-
-
-
-    <!-- Hero Section -->
-<section id="home" class="hero">
-  <div class="container hero-content">
-    <h1 class="tagline">Transforming Ideas Into Reality</h1>
-    <h2 class="subline">We build <span id="typed-text" class="highlight"></span></h2>
-    <p>Delivering software solutions for startups, businesses, and entrepreneurs.</p>
-    <a href="#services" class="btn">Let’s Work Together</a>
-  </div>
-  
-</section>
-
-
-<!-- js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-<script>
-  var typed = new Typed("#typed-text", {
-    strings: [
-      "Mobile Apps.",
-      "Websites.",
-      "AI Solutions.",
-      "Startup Tools.",
-      "UI/UX Interfaces.",
-      "Automation Systems."
-    ],
-    typeSpeed: 80,
-    backSpeed: 40,
-    backDelay: 1500,
-    loop: true
-  });
-</script>
-
-
-
-
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-cards">
-                <div class="card">
-                    <h3>🌐 Web Development</h3>
-                    <p>Modern, responsive websites tailored for your business.</p>
-                </div>
-                <div class="card">
-                    <h3>📱 App Development</h3>
-                    <p>Cross-platform mobile apps that engage users effectively.</p>
-                </div>
-                <div class="card">
-                    <h3>📈 Custom software </h3>
-                    <p> we build your partner Boosted your work with AI.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-<section id="projects" class="projects">
-    <div class="container">
-        <h2>Our Projects</h2>
-        <div class="project-cards">
-
-            <a href="corporate.html" class="project-card">
-    <img src="card1.png" alt="Project 1" />
-    <div class="card-content">
-        <h3>Corporate Website</h3>
-        <p>A sleek and modern website for a corporate client.</p>
+      <nav id="mainNav">
+        <ul>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <span class="view-more">View →</span>
-</a>
-
-            <a href="mobile.html" class="project-card">
-                <img src="card-2.png" alt="Project 2" />
-                <h3>Mobile App</h3>
-                <p>A cross-platform app for seamless user experience.</p>
-                <span class="view-more">View →</span>
-            </a>
-
-            <a href="marketing.html" class="project-card">
-                <img src="card3.jpg" alt="Project 3" />
-                <h3>Digital Tools</h3>
-                <p>Smart tools built to solve real-world problems.</p>
-                <span class="view-more">View →</span>
-            </a>
-
-        </div>
-    </div>
-</section>
+  </header>
 
 
-   
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("mainNav");
+    const navList = nav.querySelector("ul");
 
-<!-- About Section -->
-<!-- About Section with Tech Grid Background -->
-<section id="about" class="about-grid-section">
-  <div class="about-container">
-    <!-- Left Side: Image -->
-    <div class="about-image">
-      <img src="about img2.png" alt="Neuronexus Team">
-    </div>
-
-    <!-- Right Side: Text -->
-    <div class="about-text">
-      <h2>About <span>Neuronexus</span></h2>
-      <p>
-        At <strong>Neuronexus</strong>, we believe great ideas are born when creativity meets technology. 
-        Started as a passion project among friends, we’ve grown into a dynamic startup dedicated 
-        to delivering smart digital solutions.
-      </p>
-      <p>
-        From sleek websites to powerful apps and digital marketing strategies, we help businesses 
-        thrive in the online world. Our mission is simple — to transform ideas into innovative 
-        experiences and build technology that makes a difference.
-      </p>
-      <p>
-        With late-night brainstorming, endless cups of coffee, and a vision for the future, 
-        Neuronexus is more than just a tech company — it’s a 
-        <strong>creative hub for innovation</strong>.
-      </p>
-    </div>
-  </div>
-</section>
-
->
-
-
-   
-
-<!-- Meet Our Team Section -->
-<section class="team-slider">
-  <h2>Meet Our Team</h2>
-  <div class="slider">
-    <div class="slide-track">
-      <!-- Team Member Cards -->
-      <div class="team-card">
-  <div class="member-photo">
-    <img src="photo id.jpeg" alt="Suyash Narade" />
-  </div>
-  <h3>Suyash Narade</h3>
-  <p>Founder & CEO</p>
-  <div class="social-icons">
-     <a href="https://linkedin.com/in/suyash-narade-31763125b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/suyash3256" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:suyashnarade3256@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-</div>
-
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="sohamimg.jpeg" alt="Soham Kulkarni" />
-        </div>
-        <h3>Soham Kulkarni</h3>
-        <p>Project Manager</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com/in/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/qulqarni" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/qulqarni" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:sohamnitinkulkarni@gmailcom"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="chiranjeetimg.jpg" alt="Chiranjeet Banadar" />
-        </div>
-        <h3>Chiranjeet Banadar</h3>
-        <p>Lead Full Stack Developer</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/chiranjeet_banadar" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/chiranjeet9494" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:chiranjeetbanadar@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="" alt="Chinmay Patil" />
-        </div>
-        <h3>Chinmay Patil</h3>
-        <p>.NET Developer & UI/UX Expert</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/Akshayadshitole1363" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:akshayashitole30@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="team5.jpg" alt="Tushar Nangre Patil" />
-        </div>
-        <h3>Tushar Nangre Patil</h3>
-        <p>Founder</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/reelsnapt" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:suyash@example.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="team6.jpg" alt="mayur nikam" />
-        </div>
-        <h3>Mayur Nikam</h3>
-        <p>CMO</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com/in/mayurmarutinikam" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/_.its.mayur._" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/MayurNikam5151" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:mayurmarutinikam@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <!-- Duplicate for infinite loop -->
-      <div class="team-card">
-  <div class="member-photo">
-    <img src="photo id.jpeg" alt="Suyash Narade" />
-  </div>
-  <h3>Suyash Narade</h3>
-  <p>Founder & CEO</p>
-  <div class="social-icons">
-     <a href="https://linkedin.com/in/suyash-narade-31763125b" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/suyash3256" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:suyashnarade3256@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-</div>
-
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="sohamimg.jpeg" alt="Soham Kulkarni" />
-        </div>
-        <h3>Soham Kulkarni</h3>
-        <p>Project Manager</p>
-        <div class="social-icons">
-     <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/qulqarni" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/qulqarni" target="_blank"><i class="fab fa-github"></i></a>
-     <a href="mailto:sohamnitinkulkarni@gmailcom"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="chiranjeetimg.jpg" alt="Chiranjeet Banadar" />
-        </div>
-        <h3>Chiranjeet Banadar</h3>
-        <p>Lead Full Stack Developer</p>
-        <div class="social-icons">
-   <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/chiranjeet_banadar" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/chiranjeet9494" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:chiranjeetbanadar@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="" alt="Chinmay  Patil" />
-        </div>
-        <h3>Chinmay Patil</h3>
-        <p>.NET Developer & UI/UX Expert</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/Akshayashitole1363" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:akshayashitole30@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="team5.jpg" alt="Tushar Nangre Patil" />
-        </div>
-        <h3>Tushar Nangre Patil</h3>
-        <p>Founder</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/reelsnapt" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:suyash@example.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-      <div class="team-card">
-        <div class="member-photo">
-          <img src="team6.jpg" alt="Riya Patil" />
-        </div>
-        <h3>Mayur Nikam</h3>
-        <p>CMO</p>
-        <div class="social-icons">
-    <a href="https://linkedin.com/in/mayurmarutinikam" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="https://instagram.com/_.its.mayur._" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://github.com/MayurNikam5151" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:mayurmarutinikam@gmail.com"><i class="fas fa-envelope"></i></a>
-  </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-  <div class="container">
-    <h2>Contact Us</h2>
-    
-    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-      <!-- Web3Forms access key -->
-      <input type="hidden" name="access_key" value="67151c0f-2d59-4946-9151-cb5436c37798" />
-
-      <!-- Input fields with name attributes -->
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </div>
-</section>
-
-
-
-
-    <!-- js for contact  -->
-<script>
-  document.getElementById("contactForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent normal form submission
-
-    const form = this;
-    const formData = new FormData(form);
-
-    // Submit the form via fetch to Web3Forms
-    fetch(form.action, {
-      method: "POST",
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        // Show your SweetAlert popup
-        Swal.fire({
-          toast: true,
-          position: 'top',
-          icon: 'success',
-          title: 'Thanks for reaching out to us. We’ll get back to you shortly.',
-          showConfirmButton: false,
-          timer: 3000,
-          background: '#1a1a1a',
-          color: '#ffffff',
-          iconColor: '#00bfa6',
-          customClass: {
-            popup: 'custom-toast'
-          },
-          showClass: {
-            popup: 'animate__animated animate__fadeInDown'
-          },
-          hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-          }
-        });
-
-        form.reset(); // Clear the form
-      } else {
-        throw new Error("Submission failed.");
-      }
-    })
-    .catch(error => {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops!',
-        text: 'Something went wrong. Please try again later.',
-        background: '#1a1a1a',
-        color: '#ffffff'
-      });
+    menuToggle.addEventListener("click", () => {
+      navList.classList.toggle("show");
     });
-  });
-</script>
+  </script>
 
 
 
 
- 
-<!-- Footer -->
-<footer class="footer">
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1 class="tagline">Transforming Ideas Into Reality</h1>
+      <h2 class="subline">We build <span id="typed-text" class="highlight"></span></h2>
+      <p>Delivering software solutions for startups, businesses, and entrepreneurs.</p>
+      <a href="#services" class="btn">Let’s Work Together</a>
+    </div>
+
+  </section>
+
+
+  <!-- js -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script>
+    var typed = new Typed("#typed-text", {
+      strings: [
+        "Mobile Apps.",
+        "Websites.",
+        "AI Solutions.",
+        "Startup Tools.",
+        "UI/UX Interfaces.",
+        "Automation Systems."
+      ],
+      typeSpeed: 80,
+      backSpeed: 40,
+      backDelay: 1500,
+      loop: true
+    });
+  </script>
+
+
+
+
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+        <div class="card">
+          <h3>🌐 Web Development</h3>
+          <p>Modern, responsive websites tailored for your business.</p>
+        </div>
+        <div class="card">
+          <h3>📱 App Development</h3>
+          <p>Cross-platform mobile apps that engage users effectively.</p>
+        </div>
+        <div class="card">
+          <h3>📈 Custom software </h3>
+          <p> we build your partner Boosted your work with AI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <h2>Our Projects</h2>
+      <div class="project-cards">
+
+        <a href="corporate.html" class="project-card">
+          <img src="card1.png" alt="Project 1" />
+          <div class="card-content">
+            <h3>Corporate Website</h3>
+            <p>A sleek and modern website for a corporate client.</p>
+          </div>
+          <span class="view-more">View →</span>
+        </a>
+
+        <a href="mobile.html" class="project-card">
+          <img src="card-2.png" alt="Project 2" />
+          <h3>Mobile App</h3>
+          <p>A cross-platform app for seamless user experience.</p>
+          <span class="view-more">View →</span>
+        </a>
+
+        <a href="digitaltools.html" class="project-card">
+          <img src="card3.jpg" alt="Project 3" />
+          <h3>Digital Tools</h3>
+          <p>Smart tools built to solve real-world problems.</p>
+          <span class="view-more">View →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- About Section -->
+  <!-- About Section with Tech Grid Background -->
+  <section id="about" class="about-grid-section">
+    <div class="about-container">
+      <!-- Left Side: Image -->
+      <div class="about-image">
+        <img src="about img2.png" alt="Neuronexus Team">
+      </div>
+
+      <!-- Right Side: Text -->
+      <div class="about-text">
+        <h2>About <span>Neuronexus</span></h2>
+        <p>
+          At <strong>Neuronexus</strong>, we believe great ideas are born when creativity meets technology.
+          Started as a passion project among friends, we’ve grown into a dynamic startup dedicated
+          to delivering smart digital solutions.
+        </p>
+        <p>
+          From sleek websites to powerful apps and digital marketing strategies, we help businesses
+          thrive in the online world. Our mission is simple — to transform ideas into innovative
+          experiences and build technology that makes a difference.
+        </p>
+        <p>
+          With late-night brainstorming, endless cups of coffee, and a vision for the future,
+          Neuronexus is more than just a tech company — it’s a
+          <strong>creative hub for innovation</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  >
+
+
+
+
+  <!-- Meet Our Team Section -->
+  <section class="team-slider">
+    <h2>Meet Our Team</h2>
+    <div class="slider">
+      <div class="slide-track">
+        <!-- Team Member Cards -->
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="photo id.jpeg" alt="Suyash Narade" />
+          </div>
+          <h3>Suyash Narade</h3>
+          <p>Founder & CEO</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/suyash-narade-31763125b" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/suyash3256" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:suyashnarade3256@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="sohamimg.jpeg" alt="Soham Kulkarni" />
+          </div>
+          <h3>Soham Kulkarni</h3>
+          <p>Project Manager</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/qulqarni" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/qulqarni" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:sohamnitinkulkarni@gmailcom"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="chiranjeetimg.jpg" alt="Chiranjeet Banadar" />
+          </div>
+          <h3>Chiranjeet Banadar</h3>
+          <p>Lead Full Stack Developer</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/chiranjeet_banadar" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/chiranjeet9494" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:chiranjeetbanadar@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="" alt="Chinmay Patil" />
+          </div>
+          <h3>Chinmay Patil</h3>
+          <p>.NET Developer & UI/UX Expert</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Akshayadshitole1363" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:akshayashitole30@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="team5.jpg" alt="Tushar Nangre Patil" />
+          </div>
+          <h3>Tushar Nangre Patil</h3>
+          <p>Founder</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/reelsnapt" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:suyash@example.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="team6.jpg" alt="mayur nikam" />
+          </div>
+          <h3>Mayur Nikam</h3>
+          <p>CMO</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/mayurmarutinikam" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/_.its.mayur._" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/MayurNikam5151" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mayurmarutinikam@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <!-- Duplicate for infinite loop -->
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="photo id.jpeg" alt="Suyash Narade" />
+          </div>
+          <h3>Suyash Narade</h3>
+          <p>Founder & CEO</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/suyash-narade-31763125b" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/suyash_3256" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/suyash3256" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:suyashnarade3256@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="sohamimg.jpeg" alt="Soham Kulkarni" />
+          </div>
+          <h3>Soham Kulkarni</h3>
+          <p>Project Manager</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/qulqarni" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/qulqarni" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:sohamnitinkulkarni@gmailcom"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="chiranjeetimg.jpg" alt="Chiranjeet Banadar" />
+          </div>
+          <h3>Chiranjeet Banadar</h3>
+          <p>Lead Full Stack Developer</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/chiranjeet_banadar" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/chiranjeet9494" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:chiranjeetbanadar@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="" alt="Chinmay  Patil" />
+          </div>
+          <h3>Chinmay Patil</h3>
+          <p>.NET Developer & UI/UX Expert</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/Akshayashitole1363" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:akshayashitole30@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="team5.jpg" alt="Tushar Nangre Patil" />
+          </div>
+          <h3>Tushar Nangre Patil</h3>
+          <p>Founder</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/reelsnapt" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:suyash@example.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="member-photo">
+            <img src="team6.jpg" alt="Riya Patil" />
+          </div>
+          <h3>Mayur Nikam</h3>
+          <p>CMO</p>
+          <div class="social-icons">
+            <a href="https://linkedin.com/in/mayurmarutinikam" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/_.its.mayur._" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://github.com/MayurNikam5151" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mayurmarutinikam@gmail.com"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+
+      <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms access key -->
+        <input type="hidden" name="access_key" value="67151c0f-2d59-4946-9151-cb5436c37798" />
+
+        <!-- Input fields with name attributes -->
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+
+
+
+  <!-- js for contact  -->
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevent normal form submission
+
+      const form = this;
+      const formData = new FormData(form);
+
+      // Submit the form via fetch to Web3Forms
+      fetch(form.action, {
+        method: "POST",
+        body: formData
+      })
+        .then(response => {
+          if (response.ok) {
+            // Show your SweetAlert popup
+            Swal.fire({
+              toast: true,
+              position: 'top',
+              icon: 'success',
+              title: 'Thanks for reaching out to us. We’ll get back to you shortly.',
+              showConfirmButton: false,
+              timer: 3000,
+              background: '#1a1a1a',
+              color: '#ffffff',
+              iconColor: '#00bfa6',
+              customClass: {
+                popup: 'custom-toast'
+              },
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            });
+
+            form.reset(); // Clear the form
+          } else {
+            throw new Error("Submission failed.");
+          }
+        })
+        .catch(error => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops!',
+            text: 'Something went wrong. Please try again later.',
+            background: '#1a1a1a',
+            color: '#ffffff'
+          });
+        });
+    });
+  </script>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="container footer-content">
-        <div class="footer-left">
-            <h3>Neuronexus</h3>
-            <p>Sanjay Ghodawat University A block 2nd Floor Atigre</p>
-            <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
-            <p><i class="fas fa-envelope"></i> neuronexusltd@gmail.com</p>
+      <div class="footer-left">
+        <h3>Neuronexus</h3>
+        <p>Sanjay Ghodawat University A block 2nd Floor Atigre</p>
+        <p><i class="fas fa-map-marker-alt"></i> Kolhapur, Maharashtra, India</p>
+        <p><i class="fas fa-envelope"></i> neuronexusltd@gmail.com</p>
+      </div>
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/neuronexuspvtltd" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://instagram.com/neuronexus.in" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:neuronexusltd@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-        <div class="footer-social">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/neuronexuspvtltd" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://instagram.com/neuronexus.in" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:neuronexusltd@gmail.com"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="footer-bottom">
-        <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
+      <p>&copy; 2025 Neuronexus. All Rights Reserved.</p>
     </div>
-</footer>
-
-
+  </footer>
