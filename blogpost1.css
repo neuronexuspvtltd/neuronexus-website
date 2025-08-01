@@ -283,12 +283,14 @@ nav a:hover {
   }
 }
 
+/* table css post */
 
 .comparison-table {
   overflow-x: auto;
   margin: 20px 0;
 }
 
+/* Table Styling */
 .comparison-table table {
   width: 70%;
   border-collapse: collapse;
@@ -296,6 +298,7 @@ nav a:hover {
   font-size: 16px;
 }
 
+/* Table Cells */
 .comparison-table th,
 .comparison-table td {
   border: 1px solid #ffffff;
@@ -308,15 +311,24 @@ nav a:hover {
   color: #000000;
 }
 
-.comparison-table tr:nth-child(even) {
-  background-color: #000000;
-}
-
+.comparison-table tr:nth-child(even),
 .comparison-table tr:nth-child(odd) {
   background-color: #000000;
 }
 
+/* Center the table only on desktop view */
+@media (min-width: 992px) {
+  .comparison-table {
+    display: flex;
+    justify-content: center;
+  }
 
+  .comparison-table table {
+    margin: 0 auto;
+  }
+}
+
+/* Post Image */
 .post-img {
   width: 100%;
   max-width: 600px;
