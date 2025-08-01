@@ -11,7 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-     
+     <!-- chatbotlink -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="chatbot/chatbot.css">
+     <!-- end -->
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
      
@@ -436,8 +440,37 @@
   });
 </script>
 
+<!-- chatbot html -->
+ <div id="chat-widget-container">
+    <button id="chat-icon-button" title="Open Chat">
+      <i class="fas fa-comments"></i>
+      <span class="notification-badge" style="display: none;">3</span>
+    </button>
 
+    <div id="chat-container">
+      <div class="chat-header">
+        <h3>NEURONEXUS</h3>
+        <button class="close-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="chat-box">
+      </div>
+      <div id="chat-input-container">
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <div class="input-buttons">
+          <input type="file" id="file-input" accept=".txt,.json,.csv,image/*,.pdf">
+          <button id="file-button" title="Attach File"><i class="fas fa-paperclip"></i></button>
+          <button id="mike-button" title="Voice Input"><i class="fas fa-microphone"></i></button>
+          <button id="send-button" title="Send Message">
+            <i class="fas fa-paper-plane send-icon active-icon"></i> <i class="fas fa-stop-circle stop-icon"></i> <i
+              class="fas fa-pause-circle pause-icon"></i> </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <script src="chatbot/script.js"></script>
+
+<!-- end -->
 
  
 <!-- Footer -->

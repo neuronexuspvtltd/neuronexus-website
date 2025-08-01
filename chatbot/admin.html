@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f7f6; /* Soft, light background */
+            color: #34495e; /* Dark blue-grey for text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #admin-panel {
+            width: 100%;
+            max-width: 900px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2, h3 {
+            margin-top: 0;
+            color: #2c3e50; /* Darker blue-grey for headings */
+            font-weight: 600;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            border-bottom: 1px solid #eee;
+            margin-top: 25px;
+        }
+
+        .add-intent-form {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .add-intent-form input,
+        .add-intent-form textarea {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .add-intent-form input:focus,
+        .add-intent-form textarea:focus {
+            border-color: #00bfa6;
+            outline: none;
+        }
+
+        .add-intent-form textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .add-intent-form button {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #00bfa6 0%, #2c3e50 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 4px 10px rgba(0, 191, 166, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .add-intent-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 191, 166, 0.4);
+        }
+
+        .add-intent-form button:active {
+            transform: translateY(0);
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        #intent-list,
+        #unanswered-list {
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 15px;
+            background-color: #fcfcfc;
+            min-height: 100px;
+        }
+
+        .intent-item,
+        .unanswered-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            animation: slideIn 0.3s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .intent-item:last-child,
+        .unanswered-item:last-child {
+            border-bottom: none;
+        }
+
+        .intent-item span,
+        .unanswered-item span {
+            flex-grow: 1;
+            margin-right: 15px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .intent-item strong {
+            color: #00bfa6;
+        }
+
+        .intent-item div,
+        .unanswered-item div {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .intent-item button,
+        .unanswered-item button {
+            padding: 8px 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            white-space: nowrap; /* Prevents text from wrapping */
+        }
+
+        .intent-item button.edit {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .intent-item button.edit:hover {
+            background-color: #e0a800;
+            transform: translateY(-1px);
+        }
+
+        .intent-item button.delete {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .intent-item button.delete:hover {
+            background-color: #c82333;
+            transform: translateY(-1px);
+        }
+
+        .unanswered-item button.delete {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .unanswered-item button.delete:hover {
+            background-color: #5a6268;
+            transform: translateY(-1px);
+        }
+
+        .unanswered-item button.add-as-intent {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .unanswered-item button.add-as-intent:hover {
+            background-color: #218838;
+            transform: translateY(-1px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #admin-panel {
+                padding: 20px;
+                margin: 15px;
+            }
+
+            .add-intent-form input,
+            .add-intent-form textarea {
+                width: calc(100% - 20px); /* Adjust for padding on smaller screens */
+            }
+
+            .intent-item,
+            .unanswered-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .intent-item span,
+            .unanswered-item span {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .intent-item div,
+            .unanswered-item div {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .intent-item button,
+            .unanswered-item button {
+                flex-grow: 1; /* Make buttons take full width on small screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="admin-panel">
+        <h2><i class="fas fa-cogs"></i> Chatbot Intent Management</h2>
+
+        <div class="add-intent-form">
+            <h3>Add New Intent</h3>
+            <input type="text" id="add-pattern" placeholder="Enter question pattern (e.g., 'hello', 'what is', 'how to')">
+            <textarea id="add-answer" placeholder="Enter English (en-US) answer here"></textarea>
+            <button id="add-intent-button"><i class="fas fa-plus-circle"></i> Add Intent</button>
+            <p class="note">Note: For multi-language answers, add the intent in English, then click 'Edit' to add translations.</p>
+        </div>
+
+        <h3><i class="fas fa-list-alt"></i> Existing Intents:</h3>
+        <div id="intent-list"></div>
+
+        <h3><i class="fas fa-question-circle"></i> Unanswered Questions (for review):</h3>
+        <div id="unanswered-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            loadIntents();
+            loadUnansweredQuestions();
+        });
+    </script>
+</body>
+
+</html>
