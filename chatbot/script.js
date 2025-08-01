@@ -1,20 +1,16 @@
-// WARNING: Exposing API key in frontend is a SECURITY RISK.
-// For demonstration ONLY. Do NOT use in production.
-const GEMINI_API_KEY = 'AIzaSyDscEg9nh_U_PK_g8j_kRLCYvcEba9ulPs'; // Replace with your actual API key suyash api = AIzaSyAGpfJ1dJA-fUGGjrF9m8qPOc9ZWZG3qeA
-// IMPORTANT: Use gemini-pro-vision for image/multi-modal input
+//Script.js--->start
+
+const GEMINI_API_KEY = 'AIzaSyDscEg9nh_U_PK_g8j_kRLCYvcEba9ulPs';
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
 
-// Get references to elements that might exist on EITHER page
 const chatBox = document.getElementById('chat-box');
 const userInput = document.getElementById('user-input');
 const sendButton = document.getElementById('send-button');
 
-// New elements for voice and file features
 const mikeButton = document.getElementById('mike-button');
 const fileInput = document.getElementById('file-input');
 const fileButton = document.getElementById('file-button');
 
-// Admin panel elements (might be null on index.html)
 const intentListDiv = document.getElementById('intent-list');
 const unansweredListDiv = document.getElementById('unanswered-list');
 const addPatternInput = document.getElementById('add-pattern');
@@ -25,32 +21,26 @@ const addIntentButton = document.getElementById('add-intent-button');
 let intents = [];
 let unansweredQuestions = [];
 
-// --- Speech Synthesis (Text-to-Speech) Variables ---
 const synth = window.speechSynthesis;
-let selectedVoice = null; // Will store the selected voice
-const DEFAULT_LANG = 'en-US'; // Default to English
+let selectedVoice = null;
+const DEFAULT_LANG = 'en-US';
 
-// --- Global state variables for speech control ---
-let isSpeaking = false; // Tracks if AI is actively speaking
-let isPaused = false;   // Tracks if AI speech is paused
+let isSpeaking = false;
+let isPaused = false;
 
-// --- Global variable to store the selected file for sending ---
 let selectedFile = null;
 
-// --- Helper function to update send button icon state ---
 function setSendButtonState(state) {
-    if (!sendButton) return; // Ensure button exists on the page
+    if (!sendButton) return;
 
     const sendIcon = sendButton.querySelector('.send-icon');
     const stopIcon = sendButton.querySelector('.stop-icon');
     const pauseIcon = sendButton.querySelector('.pause-icon');
 
-    // Remove active class from all icons first
     sendIcon.classList.remove('active-icon');
     stopIcon.classList.remove('active-icon');
     pauseIcon.classList.remove('active-icon');
 
-    // Add active class to the desired icon and update title
     if (state === 'send') {
         sendIcon.classList.add('active-icon');
         sendButton.title = "Send Message";
@@ -59,36 +49,31 @@ function setSendButtonState(state) {
         sendButton.title = "Stop Speech";
     } else if (state === 'pause') {
         pauseIcon.classList.add('active-icon');
-        sendButton.title = "Speech Paused (Click to Stop)"; // Changed title for clarity
+        sendButton.title = "Speech Paused (Click to Stop)";
     }
 }
 
-// Function to load and select voices based on the default language
 function loadVoices() {
     const voices = synth.getVoices();
     selectedVoice = voices.find(voice => voice.lang === DEFAULT_LANG && voice.name.includes("Google") || voice.default) || voices[0];
 
     if (!selectedVoice && voices.length === 0) {
         synth.onvoiceschanged = () => {
-            loadVoices(); // Try again once voices are loaded
+            loadVoices();
         };
     }
 }
 
-// Initial load of voices when the script runs
 loadVoices();
 
-
-// --- Speech Control Functions ---
 
 function speakText(text) {
     if (!synth || !text || !selectedVoice) {
         console.warn("Speech synthesis not available or voice not loaded.");
-        setSendButtonState('send'); // Ensure button is 'Send' if speech can't start
+        setSendButtonState('send');
         return;
     }
 
-    // If already speaking, cancel current speech before starting new one
     if (synth.speaking || synth.paused) {
         synth.cancel();
     }
@@ -100,14 +85,14 @@ function speakText(text) {
     utterance.onstart = () => {
         isSpeaking = true;
         isPaused = false;
-        setSendButtonState('stop'); // Change to stop button when speaking starts
+        setSendButtonState('stop');
         console.log('Speech started.');
     };
 
     utterance.onend = () => {
         isSpeaking = false;
         isPaused = false;
-        setSendButtonState('send'); // Change back to send button when speech ends
+        setSendButtonState('send');
         console.log('Speech ended.');
     };
 
@@ -115,18 +100,18 @@ function speakText(text) {
         console.error('Speech synthesis error:', event.error);
         isSpeaking = false;
         isPaused = false;
-        setSendButtonState('send'); // Revert on error
+        setSendButtonState('send');
     };
 
     synth.speak(utterance);
 }
 
 function stopSpeech() {
-    if (synth.speaking || synth.paused) { // Stop if speaking or paused
+    if (synth.speaking || synth.paused) {
         synth.cancel();
         isSpeaking = false;
         isPaused = false;
-        setSendButtonState('send'); // Always go back to send after stopping
+        setSendButtonState('send');
         console.log('Speech stopped by user.');
     }
 }
@@ -135,56 +120,50 @@ function pauseSpeech() {
     if (synth.speaking && !isPaused) {
         synth.pause();
         isPaused = true;
-        setSendButtonState('pause'); // Change to pause icon
+        setSendButtonState('pause');
         console.log('Speech paused.');
     }
 }
 
 
-// --- Chatbot Core Functions ---
-
-// Modified addMessage to handle displaying file previews (e.g., image thumbnail)
 function addMessage(text, sender, fileData = null) {
-    if (chatBox) { // Ensure chatBox exists before trying to add message
+    if (chatBox) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', `${sender}-message`);
 
-        // If file data is provided, create an image or file link
         if (fileData) {
             const fileElement = document.createElement('div');
-            fileElement.style.marginBottom = '5px'; // Small spacing
+            fileElement.style.marginBottom = '5px';
 
             if (fileData.type.startsWith('image/')) {
                 const img = document.createElement('img');
-                img.src = fileData.content; // Use the data URL as source
+                img.src = fileData.content;
                 img.style.maxWidth = '100%';
-                img.style.maxHeight = '150px'; // Limit preview size
+                img.style.maxHeight = '150px';
                 img.style.borderRadius = '5px';
                 img.alt = 'Attached image';
                 fileElement.appendChild(img);
             } else if (fileData.type === 'application/pdf') {
                 const pdfLink = document.createElement('a');
-                pdfLink.href = fileData.content; // data URL
+                pdfLink.href = fileData.content;
                 pdfLink.target = '_blank';
                 pdfLink.textContent = `Attached PDF: ${fileData.name}`;
                 pdfLink.style.display = 'block';
                 pdfLink.style.textDecoration = 'underline';
-                pdfLink.style.color = '#00bfa6'; /* Example link color */
+                pdfLink.style.color = '#00bfa6';
                 fileElement.appendChild(pdfLink);
             } else {
-                // For other file types (like .txt, .json, .csv)
                 const fileInfo = document.createElement('span');
                 fileInfo.textContent = `Attached File: ${fileData.name} (${fileData.type})`;
                 fileElement.appendChild(fileInfo);
             }
-            messageDiv.appendChild(fileElement); // Append file element before text
+            messageDiv.appendChild(fileElement);
         }
 
         const textNode = document.createElement('span');
         textNode.textContent = text;
         messageDiv.appendChild(textNode);
 
-        // Add timestamp
         const now = new Date();
         const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         const timestampSpan = document.createElement('span');
@@ -194,24 +173,22 @@ function addMessage(text, sender, fileData = null) {
 
 
         chatBox.appendChild(messageDiv);
-        chatBox.scrollTop = chatBox.scrollHeight; // Auto-scroll to bottom
+        chatBox.scrollTop = chatBox.scrollHeight;
 
         if (sender === 'bot') {
-            speakText(text); // Speak bot's message
+            speakText(text);
         }
     }
 }
 
-// Helper to remove "Thinking..." message
 function removeThinkingMessage() {
     if (!chatBox) return;
     const thinkingMessage = chatBox.querySelector('.bot-message:last-child');
-    if (thinkingMessage && thinkingMessage.textContent.includes("Thinking...")) { // Check for "Thinking..." text
+    if (thinkingMessage && thinkingMessage.textContent.includes("Thinking...")) {
         thinkingMessage.remove();
     }
 }
 
-// Add typing indicator
 function showTypingIndicator() {
     if (!chatBox) return;
     const typingIndicator = document.createElement('div');
@@ -226,7 +203,6 @@ function showTypingIndicator() {
     chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Remove typing indicator
 function hideTypingIndicator() {
     const typingIndicator = document.getElementById('typing-indicator');
     if (typingIndicator) {
@@ -238,9 +214,6 @@ function hideTypingIndicator() {
 async function getBotResponse(message, fileContent = null, mimeType = null) {
     const lowerCaseMessage = message.toLowerCase().trim();
 
-    // 1. Check Pre-defined Intents
-    // Only check intents if there's no file attached.
-    // If a file is attached, Gemini is usually the primary source for response.
     if (!fileContent) {
         for (const intent of intents) {
             if (lowerCaseMessage.includes(intent.pattern.toLowerCase())) {
@@ -249,17 +222,13 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
         }
     }
 
-    // 2. Fallback to Gemini (WARNING: API Key Exposure)
-    showTypingIndicator(); // Show thinking indicator when going to Gemini
+    showTypingIndicator();
 
     const contents = [];
-    // Add text part if available
     if (message) {
         contents.push({ text: message });
     }
-    // Add file part if available
     if (fileContent && mimeType) {
-        // Remove the data URI prefix (e.g., "data:image/jpeg;base64,")
         const base64Data = fileContent.split(',')[1];
         contents.push({
             inlineData: {
@@ -270,7 +239,7 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
     }
 
     if (contents.length === 0) {
-        hideTypingIndicator(); // Hide indicator if no content
+        hideTypingIndicator();
         return "Please enter a message or attach a file to get a response.";
     }
 
@@ -281,7 +250,7 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                contents: [{ parts: contents }] // Wrap contents in 'parts' array
+                contents: [{ parts: contents }]
             })
         });
 
@@ -296,10 +265,8 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
 
         hideTypingIndicator();
 
-        // Add to Unanswered Questions if Gemini responded AND no predefined intent caught it.
-        // This logic is crucial to ensure only truly unanswered *text* questions are logged.
         let isIntentAnswered = false;
-        if (!fileContent) { // Only check for text messages if they were answered by intent system
+        if (!fileContent) {
             for (const intent of intents) {
                 if (lowerCaseMessage.includes(intent.pattern.toLowerCase())) {
                     isIntentAnswered = true;
@@ -308,7 +275,7 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
             }
         }
 
-        if (!isIntentAnswered && !unansweredQuestions.includes(lowerCaseMessage) && lowerCaseMessage !== "") { // Don't log empty messages
+        if (!isIntentAnswered && !unansweredQuestions.includes(lowerCaseMessage) && lowerCaseMessage !== "") {
             unansweredQuestions.push(lowerCaseMessage);
             saveUnansweredQuestions();
         }
@@ -319,8 +286,6 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
         console.error("Error calling Gemini API:", error);
         hideTypingIndicator();
 
-        // Log the question to unanswered if there was an error with Gemini too,
-        // and it wasn't caught by an intent.
         let isIntentAnswered = false;
         if (!fileContent) {
             for (const intent of intents) {
@@ -341,47 +306,39 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
 
 
 async function sendMessage() {
-    // If AI is currently speaking or paused, a click on send button means STOP
     if (isSpeaking || isPaused) {
         stopSpeech();
-        return; // Do not proceed with sending a new message
+        return;
     }
 
     let message = userInput.value.trim();
-    const file = selectedFile; // Get the stored selected file
+    const file = selectedFile;
 
     if (message === '' && !file) {
         alert("Please enter a message or select a file.");
         return;
     }
 
-    // Handle file input if a file is selected
     if (file) {
         const reader = new FileReader();
 
         reader.onload = async function (e) {
-            const fileContent = e.target.result; // This will be the Base64 data URL
+            const fileContent = e.target.result;
             const mimeType = file.type;
             const fileName = file.name;
 
-            // Display user message with file preview
             addMessage(message, 'user', { content: fileContent, type: mimeType, name: fileName });
 
-            // Clear input and file after display
-            userInput.value = ''; // Clear input after sending
-            fileInput.value = ''; // Clear the actual file input
-            selectedFile = null; // Clear the global variable
+            userInput.value = '';
+            fileInput.value = '';
+            selectedFile = null;
 
-            // Get response from bot
             const botResponse = await getBotResponse(message, fileContent, mimeType);
             addMessage(botResponse, 'bot');
         };
 
-        // Read the file as a Data URL (Base64) for images and PDFs
-        // For .txt, .json, .csv, we still read as Data URL, and Gemini will handle it.
         reader.readAsDataURL(file);
     } else {
-        // No file, just send the text message
         addMessage(message, 'user');
         userInput.value = '';
         const botResponse = await getBotResponse(message);
@@ -390,29 +347,39 @@ async function sendMessage() {
 }
 
 
-// --- Event Listeners for Chatbot UI ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Set initial state of send button
     setSendButtonState('send');
-    loadIntentsForChat(); // Load intents for the chat UI
+    loadIntentsForChat();
 
-    // Chat widget toggle functionality
     const chatIconButton = document.getElementById('chat-icon-button');
     const chatContainer = document.getElementById('chat-container');
     const closeBtn = document.querySelector('.chat-header .close-btn');
     const notificationBadge = document.querySelector('.notification-badge');
 
-    // Toggle chat container
+    let hasGreeted = false; // New flag to track if greeting has occurred
+
     function toggleChat() {
         const isOpening = !chatContainer.classList.contains('open');
         chatContainer.classList.toggle('open');
 
         if (isOpening) {
-            chatIconButton.style.display = 'none';
-            notificationBadge.style.display = 'none';
+            if (chatIconButton) {
+                chatIconButton.style.display = 'none';
+                chatIconButton.classList.remove('pulse');
+            }
+            if (notificationBadge) {
+                notificationBadge.style.display = 'none';
+                notificationBadge.textContent = '0';
+            }
+            // Add initial bot greeting message ONLY when opening for the first time
+            if (chatBox && !hasGreeted) {
+                addMessage("Hi there! Welcome to Neuronexus", 'bot');
+                hasGreeted = true; // Set the flag to true after greeting
+            }
         } else {
-            chatIconButton.style.display = 'flex';
-            // Stop speech if chat is closed while speaking or paused
+            if (chatIconButton) {
+                chatIconButton.style.display = 'flex';
+            }
             if (isSpeaking || isPaused) {
                 stopSpeech();
             }
@@ -422,34 +389,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (chatIconButton) chatIconButton.addEventListener('click', toggleChat);
     if (closeBtn) closeBtn.addEventListener('click', toggleChat);
 
-    // Simulate new message notification (for demo purposes)
-    if (notificationBadge && chatIconButton) {
-        setTimeout(() => {
-            notificationBadge.style.display = 'flex';
-            notificationBadge.textContent = '1';
-            chatIconButton.classList.add('pulse');
-
-            setTimeout(() => {
-                chatIconButton.classList.remove('pulse');
-            }, 1000);
-        }, 3000);
-    }
-
-    // Simulate initial bot message on load (only on chat page)
-    if (chatBox) {
-        setTimeout(() => {
-            const initialMessage = "Hello! I'm your virtual assistant. How can I help you today?";
-            addMessage(initialMessage, false);
-            // speech is handled inside addMessage for bot responses
-        }, 1000);
-    }
-
-    // Attach event listeners for main chat elements
     if (sendButton && userInput) {
         sendButton.addEventListener('click', sendMessage);
         userInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
-                // If AI is speaking, pause it. If paused, stop it. Otherwise, send the message.
                 if (isSpeaking) {
                     pauseSpeech();
                 } else if (isPaused) {
@@ -461,33 +404,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle file button click
     if (fileButton && fileInput) {
         fileButton.addEventListener('click', () => {
-            fileInput.click(); // Trigger the hidden file input click
+            fileInput.click();
         });
 
         fileInput.addEventListener('change', () => {
             if (fileInput.files.length > 0) {
-                selectedFile = fileInput.files[0]; // Store the selected file
+                selectedFile = fileInput.files[0];
                 alert(`File selected: ${selectedFile.name}. It will be sent with your next message.`);
             } else {
-                selectedFile = null; // No file selected
+                selectedFile = null;
             }
         });
     }
 
-    // Handle microphone input
     if (mikeButton && ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window)) {
         const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-        recognition.continuous = false; // Listen for a single utterance
-        recognition.lang = DEFAULT_LANG; // Set language to default (en-US)
-        recognition.interimResults = false; // Only return final results
+        recognition.continuous = false;
+        recognition.lang = DEFAULT_LANG;
+        recognition.interimResults = false;
 
         recognition.onresult = (event) => {
             const transcript = event.results[0][0].transcript;
-            userInput.value = transcript; // Put transcribed text into input
-            sendMessage(); // Automatically send message after speech
+            userInput.value = transcript;
+            sendMessage();
         };
 
         recognition.onerror = (event) => {
@@ -512,7 +453,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 recognition.stop();
             } else {
                 try {
-                    recognition.lang = DEFAULT_LANG; // Update lang before starting
+                    recognition.lang = DEFAULT_LANG;
                     recognition.start();
                     mikeButton.classList.add('recording');
                     addMessage("Listening... Please speak.", 'bot');
@@ -524,30 +465,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     } else if (mikeButton) {
-        mikeButton.style.display = 'none'; // Hide button if API not supported
+        mikeButton.style.display = 'none';
         console.warn("Web Speech API (SpeechRecognition) not supported in this browser.");
     }
 
-    // --- Admin Panel Specific Listeners (only if elements exist) ---
     if (addIntentButton) {
         addIntentButton.addEventListener('click', addIntent);
     }
-    // Load data for admin panel if on that page
     if (intentListDiv || unansweredListDiv) {
-        loadIntents(); // This will also call renderIntents
-        loadUnansweredQuestions(); // This will also call renderUnansweredQuestions
+        loadIntents();
+        loadUnansweredQuestions();
     }
 });
 
-
-// --- Local Storage Management (shared between chat & admin) ---
 
 function loadIntents() {
     const storedIntents = localStorage.getItem('chatbotIntents');
     if (storedIntents) {
         intents = JSON.parse(storedIntents);
     } else {
-        // Default intents if none are stored
         intents = [
             { pattern: "hello", answer: "Hi there! How can I help you today?" },
             { pattern: "hi", answer: "Hello! What can I do for you?" },
@@ -557,17 +493,16 @@ function loadIntents() {
         ];
         saveIntents();
     }
-    if (intentListDiv) { // Only render if on admin page
+    if (intentListDiv) {
         renderIntents();
     }
 }
 
-function loadIntentsForChat() { // Specific function for chat page to avoid rendering admin UI
+function loadIntentsForChat() {
     const storedIntents = localStorage.getItem('chatbotIntents');
     if (storedIntents) {
         intents = JSON.parse(storedIntents);
     } else {
-        // Default intents if none are stored (same as loadIntents for consistency)
         intents = [
             { pattern: "hello", answer: "Hi there! How can I help you today?" },
             { pattern: "hi", answer: "Hello! What can I do for you?" },
@@ -575,7 +510,7 @@ function loadIntentsForChat() { // Specific function for chat page to avoid rend
             { pattern: "contact", answer: "You can reach us at support@example.com or call us at 123-456-7890." },
             { pattern: "thank you", answer: "You're welcome!" }
         ];
-        saveIntents(); // Save if defaults were just set
+        saveIntents();
     }
 }
 
@@ -584,10 +519,8 @@ function saveIntents() {
     localStorage.setItem('chatbotIntents', JSON.stringify(intents));
 }
 
-// --- Admin Panel Functions (used by admin.html) ---
-
 function renderIntents() {
-    if (!intentListDiv) return; // Only run if on admin page
+    if (!intentListDiv) return;
 
     intentListDiv.innerHTML = '';
     intents.forEach((intent, index) => {
@@ -605,7 +538,7 @@ function renderIntents() {
 }
 
 function addIntent() {
-    if (!addPatternInput || !addAnswerTextarea) return; // Only run if on admin page
+    if (!addPatternInput || !addAnswerTextarea) return;
 
     const pattern = addPatternInput.value.trim();
     const answer = addAnswerTextarea.value.trim();
@@ -613,7 +546,7 @@ function addIntent() {
     if (pattern && answer) {
         intents.push({ pattern, answer });
         saveIntents();
-        renderIntents(); // Re-render the list on admin page
+        renderIntents();
         addPatternInput.value = '';
         addAnswerTextarea.value = '';
     } else {
@@ -622,12 +555,12 @@ function addIntent() {
 }
 
 function editIntent(index) {
-    if (!intentListDiv) return; // Only run if on admin page
+    if (!intentListDiv) return;
 
     const newPattern = prompt("Edit pattern:", intents[index].pattern);
     const newAnswer = prompt("Edit answer:", intents[index].answer);
 
-    if (newPattern !== null && newAnswer !== null) { // null if user cancels prompt
+    if (newPattern !== null && newAnswer !== null) {
         intents[index].pattern = newPattern.trim();
         intents[index].answer = newAnswer.trim();
         saveIntents();
@@ -636,7 +569,7 @@ function editIntent(index) {
 }
 
 function deleteIntent(index) {
-    if (!intentListDiv) return; // Only run if on admin page
+    if (!intentListDiv) return;
 
     if (confirm(`Are you sure you want to delete the intent for "${intents[index].pattern}"?`)) {
         intents.splice(index, 1);
@@ -646,14 +579,12 @@ function deleteIntent(index) {
 }
 
 
-// --- Unanswered Questions Management (shared functions, rendered by admin.html) ---
-
 function loadUnansweredQuestions() {
     const storedUnanswered = localStorage.getItem('unansweredChatQuestions');
     if (storedUnanswered) {
         unansweredQuestions = JSON.parse(storedUnanswered);
     }
-    if (unansweredListDiv) { // Only render if on admin page
+    if (unansweredListDiv) {
         renderUnansweredQuestions();
     }
 }
@@ -663,7 +594,7 @@ function saveUnansweredQuestions() {
 }
 
 function renderUnansweredQuestions() {
-    if (!unansweredListDiv) return; // Only run if on admin page
+    if (!unansweredListDiv) return;
 
     unansweredListDiv.innerHTML = '';
     if (unansweredQuestions.length === 0) {
@@ -685,7 +616,7 @@ function renderUnansweredQuestions() {
 }
 
 function deleteUnanswered(index) {
-    if (!unansweredListDiv) return; // Only run if on admin page
+    if (!unansweredListDiv) return;
 
     if (confirm(`Remove "${unansweredQuestions[index]}" from unanswered list?`)) {
         unansweredQuestions.splice(index, 1);
@@ -694,11 +625,11 @@ function deleteUnanswered(index) {
     }
 }
 
-// Pre-fills the Add Intent form with an unanswered question
 function addUnansweredToIntentForm(index) {
-    if (!addPatternInput || !addAnswerTextarea) return; // Ensure elements exist
+    if (!addPatternInput || !addAnswerTextarea) return;
 
     const questionToAdd = unansweredQuestions[index];
     addPatternInput.value = questionToAdd;
-    addAnswerTextarea.value = "Please provide an answer here..."; // Suggest an answer
+    addAnswerTextarea.value = "Please provide an answer here...";
 }
+//Script.js--->start
