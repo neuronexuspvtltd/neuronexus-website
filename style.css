@@ -205,7 +205,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #0a0a0a;
+    background-color: #000000;
     color: #fff;
 }
 
@@ -601,10 +601,13 @@ body {
 
 
 /* Meet Our Team Section */
+/* --- Team Slider Styles --- */
 .team-slider {
   background: #111;
   padding: 50px 0;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .team-slider h2 {
@@ -620,53 +623,14 @@ body {
 
 .slide-track {
   display: flex;
-  animation: scroll 30s linear infinite;
-  width: calc(300px * 12); /* 6 cards x 2 for infinite loop */
+  animation: scroll 15s linear infinite;
+  width: calc(320px * 12);
 }
 
-.team-card {
-  background: #1c1c1c;
-  border-radius: 15px;
-  width: 300px;
-  margin: 0 15px;
-  text-align: center;
-  padding: 20px;
-  flex-shrink: 0;
+.slide-track:hover {
+  animation-play-state: paused;
 }
 
-.member-photo {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 10px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid #00bfa6;
-}
-
-.member-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.team-card h3 {
-  color: #00bfa6;
-  margin: 10px 0 5px;
-}
-
-.team-card p {
-  color: #ccc;
-  font-size: 0.95rem;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
 .team-card {
   background: #1f1f1f;
   border-radius: 15px;
@@ -674,6 +638,7 @@ body {
   margin: 20px;
   text-align: center;
   padding: 20px;
+  flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 191, 166, 0.1);
 }
@@ -683,13 +648,21 @@ body {
   box-shadow: 0 10px 25px rgba(0, 191, 166, 0.4);
 }
 
-.member-photo img {
+.member-photo {
   width: 120px;
   height: 120px;
-  /* border-radius: 50%; */
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #00bfa6;
+  cursor: pointer;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  border: 1px solid #00bfa6;
-  margin-bottom: 10px;
+  display: block;
   transition: transform 0.3s ease;
 }
 
@@ -697,7 +670,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Member name & role */
 .team-card h3 {
   color: #fff;
   margin: 10px 0 5px;
@@ -707,9 +679,9 @@ body {
 .team-card p {
   color: #aaa;
   font-size: 0.95rem;
+  margin-bottom: 15px;
 }
 
-/* Social icons always visible and styled */
 .social-icons {
   margin-top: 10px;
   display: flex;
@@ -728,7 +700,184 @@ body {
   transform: scale(1.2);
 }
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
 
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Modal (Pop-up) Styles --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  padding-top: 60px;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+.modal-caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 20px;
+  font-size: 1.2rem;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+  .team-slider {
+    padding: 30px 0;
+  }
+
+  .team-slider h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .slide-track {
+    animation: scroll 20s linear infinite;
+    width: calc(280px * 12);
+  }
+
+  .team-card {
+    width: 250px;
+    margin: 15px;
+    padding: 15px;
+  }
+
+  .member-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .team-card p {
+    font-size: 0.9rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .modal-caption {
+    width: 90%;
+    max-width: 350px;
+    font-size: 1.1rem;
+  }
+
+  .close {
+    font-size: 35px;
+    right: 20px;
+    top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-slider h2 {
+    font-size: 1.8rem;
+  }
+
+  .team-card {
+    width: 220px;
+    margin: 10px;
+    padding: 10px;
+  }
+
+  .member-photo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .team-card h3 {
+    font-size: 1rem;
+  }
+
+  .team-card p {
+    font-size: 0.85rem;
+  }
+
+  .social-icons {
+    gap: 10px;
+  }
+
+  .social-icons a {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 280px;
+  }
+
+  .modal-caption {
+    width: 95%;
+    max-width: 280px;
+    font-size: 1rem;
+  }
+
+  .close {
+    font-size: 30px;
+    right: 15px;
+  }
+}
 
 
 

@@ -27,6 +27,7 @@ const DEFAULT_LANG = 'en-US';
 
 let isSpeaking = false;
 let isPaused = false;
+let isProcessing = false; // New flag to track if a request is in progress
 
 let selectedFile = null;
 
@@ -126,10 +127,13 @@ function pauseSpeech() {
 }
 
 
-function addMessage(text, sender, fileData = null) {
+function addMessage(text, sender, fileData = null, isTemporary = false) { // Added isTemporary parameter
     if (chatBox) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', `${sender}-message`);
+        if (isTemporary) { // Add a class if it's a temporary message
+            messageDiv.classList.add('temporary-message');
+        }
 
         if (fileData) {
             const fileElement = document.createElement('div');
@@ -176,10 +180,20 @@ function addMessage(text, sender, fileData = null) {
         chatBox.scrollTop = chatBox.scrollHeight;
 
         if (sender === 'bot') {
-            speakText(text);
+            // Check if it's the specific microphone prompt before speaking
+            if (text !== "Listening... Please speak." && text !== "Microphone off.") {
+                speakText(text);
+            }
         }
     }
 }
+
+// Function to remove temporary messages
+function removeTemporaryMessages() {
+    const temporaryMessages = chatBox.querySelectorAll('.temporary-message');
+    temporaryMessages.forEach(msg => msg.remove());
+}
+
 
 function removeThinkingMessage() {
     if (!chatBox) return;
@@ -210,13 +224,29 @@ function hideTypingIndicator() {
     }
 }
 
+// Function to enable/disable user input
+function setInputState(enabled) {
+    userInput.disabled = !enabled;
+    sendButton.disabled = !enabled;
+    mikeButton.disabled = !enabled; // Also disable mike button
+    fileButton.disabled = !enabled; // Also disable file button
+    if (enabled) {
+        userInput.focus(); // Focus input when enabled
+    }
+}
+
 
 async function getBotResponse(message, fileContent = null, mimeType = null) {
     const lowerCaseMessage = message.toLowerCase().trim();
+    isProcessing = true; // Set processing flag to true
+    setInputState(false); // Disable input and buttons
 
     if (!fileContent) {
         for (const intent of intents) {
             if (lowerCaseMessage.includes(intent.pattern.toLowerCase())) {
+                removeTemporaryMessages(); // Remove "Listening..." messages
+                isProcessing = false; // Reset processing flag
+                setInputState(true); // Re-enable input and buttons
                 return intent.answer;
             }
         }
@@ -240,6 +270,9 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
 
     if (contents.length === 0) {
         hideTypingIndicator();
+        removeTemporaryMessages(); // Remove "Listening..." messages
+        isProcessing = false; // Reset processing flag
+        setInputState(true); // Re-enable input and buttons
         return "Please enter a message or attach a file to get a response.";
     }
 
@@ -261,9 +294,13 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
         }
 
         const data = await response.json();
-        const geminiText = data.candidates[0]?.content?.parts[0]?.text || "Sorry, I couldn't get a response from Gemini.";
+        const geminiText = data.candidates[0]?.content?.parts[0]?.text || "Sorry, I couldn't get a response from Neuronexus.";
 
         hideTypingIndicator();
+        removeTemporaryMessages(); // Remove "Listening..." messages
+        isProcessing = false; // Reset processing flag
+        setInputState(true); // Re-enable input and buttons
+
 
         let isIntentAnswered = false;
         if (!fileContent) {
@@ -285,6 +322,9 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
     } catch (error) {
         console.error("Error calling Gemini API:", error);
         hideTypingIndicator();
+        removeTemporaryMessages(); // Remove "Listening..." messages
+        isProcessing = false; // Reset processing flag
+        setInputState(true); // Re-enable input and buttons
 
         let isIntentAnswered = false;
         if (!fileContent) {
@@ -306,8 +346,11 @@ async function getBotResponse(message, fileContent = null, mimeType = null) {
 
 
 async function sendMessage() {
-    if (isSpeaking || isPaused) {
-        stopSpeech();
+    // Prevent sending if already processing
+    if (isProcessing || isSpeaking || isPaused) {
+        if (isSpeaking || isPaused) {
+            stopSpeech(); // Allow stopping speech even if processing
+        }
         return;
     }
 
@@ -318,6 +361,8 @@ async function sendMessage() {
         alert("Please enter a message or select a file.");
         return;
     }
+
+    removeTemporaryMessages(); // Remove any existing "Listening..." messages before sending a new message
 
     if (file) {
         const reader = new FileReader();
@@ -350,6 +395,7 @@ async function sendMessage() {
 document.addEventListener('DOMContentLoaded', () => {
     setSendButtonState('send');
     loadIntentsForChat();
+    setInputState(true); // Ensure inputs are enabled on page load
 
     const chatIconButton = document.getElementById('chat-icon-button');
     const chatContainer = document.getElementById('chat-container');
@@ -376,6 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 addMessage("Hi there! Welcome to Neuronexus", 'bot');
                 hasGreeted = true; // Set the flag to true after greeting
             }
+            setInputState(true); // Ensure inputs are enabled when chat opens
         } else {
             if (chatIconButton) {
                 chatIconButton.style.display = 'flex';
@@ -383,6 +430,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isSpeaking || isPaused) {
                 stopSpeech();
             }
+            setInputState(true); // Ensure inputs are enabled when chat closes (just in case)
         }
     }
 
@@ -393,6 +441,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.addEventListener('click', sendMessage);
         userInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
+                if (isProcessing) { // Don't allow new messages if processing
+                    return;
+                }
                 if (isSpeaking) {
                     pauseSpeech();
                 } else if (isPaused) {
@@ -406,6 +457,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (fileButton && fileInput) {
         fileButton.addEventListener('click', () => {
+            if (isProcessing) { // Prevent file selection if processing
+                alert("Please wait for the current response to complete.");
+                return;
+            }
             fileInput.click();
         });
 
@@ -428,11 +483,14 @@ document.addEventListener('DOMContentLoaded', () => {
         recognition.onresult = (event) => {
             const transcript = event.results[0][0].transcript;
             userInput.value = transcript;
-            sendMessage();
+            removeTemporaryMessages(); // Hide "Listening..." message when result is obtained
+            sendMessage(); // Send the message
+            // setInputState(true) is handled by sendMessage -> getBotResponse
         };
 
         recognition.onerror = (event) => {
             console.error('Speech recognition error:', event.error);
+            removeTemporaryMessages(); // Hide "Listening..." message on error
             if (event.error === 'not-allowed') {
                 addMessage("Microphone access denied. Please allow microphone in your browser settings.", 'bot');
             } else if (event.error === 'no-speech') {
@@ -441,26 +499,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 addMessage(`Speech recognition error: ${event.error}`, 'bot');
             }
             mikeButton.classList.remove('recording');
+            setInputState(true); // Re-enable input on error
         };
 
         recognition.onend = () => {
             mikeButton.classList.remove('recording');
-            addMessage("Microphone off.", 'bot');
+            // 'onend' fires after 'onresult' or 'onerror', so the message should already be handled.
+            // setInputState(true) is handled by sendMessage -> getBotResponse, or onerror.
         };
 
         mikeButton.addEventListener('click', () => {
+            if (isProcessing) { // Prevent mic use if a request is already processing
+                alert("Please wait for the current response to complete.");
+                return;
+            }
+
             if (mikeButton.classList.contains('recording')) {
                 recognition.stop();
+                removeTemporaryMessages(); // Hide "Listening..." message when mic is manually turned off
+                setInputState(true); // Re-enable input when mic is stopped
             } else {
                 try {
                     recognition.lang = DEFAULT_LANG;
                     recognition.start();
                     mikeButton.classList.add('recording');
-                    addMessage("Listening... Please speak.", 'bot');
+                    setInputState(false); // Disable input and buttons immediately when mic starts
+                    // Add a slight delay before speaking the "Listening..." message
+                    // and mark it as temporary
+                    setTimeout(() => {
+                        addMessage("Listening... Please speak.", 'bot', null, true); // Mark as temporary
+                    }, 200); // 200ms delay, adjust if needed
                 } catch (e) {
                     console.error("Error starting speech recognition:", e);
                     alert("Could not start microphone. Ensure your browser supports it and you've granted permission.");
                     mikeButton.classList.remove('recording');
+                    setInputState(true); // Re-enable input on error
                 }
             }
         });
@@ -632,4 +705,3 @@ function addUnansweredToIntentForm(index) {
     addPatternInput.value = questionToAdd;
     addAnswerTextarea.value = "Please provide an answer here...";
 }
-//Script.js--->start
