@@ -419,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             // Add initial bot greeting message ONLY when opening for the first time
             if (chatBox && !hasGreeted) {
-                addMessage("Hi there! Welcome to Neuronexus", 'bot');
+                addMessage("Hi there i am your personal assistant neuro! Welcome to Neuronexus", 'bot');
                 hasGreeted = true; // Set the flag to true after greeting
             }
             setInputState(true); // Ensure inputs are enabled when chat opens
