@@ -60,14 +60,24 @@
 
 
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const nav = document.getElementById("mainNav");
-    const navList = nav.querySelector("ul");
+  const menuToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector("nav ul");
+  const navLinks = document.querySelectorAll("nav a");
 
-    menuToggle.addEventListener("click", () => {
-      navList.classList.toggle("show");
+  // Toggle menu on button click
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+
+  // Close menu when any link is clicked
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("show");
     });
-  </script>
+  });
+</script>
+
+  
 
 
 
@@ -102,7 +112,9 @@
       backDelay: 1500,
       loop: true
     });
+    
   </script>
+  
 
 
 
